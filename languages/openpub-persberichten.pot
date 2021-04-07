@@ -1,0 +1,27 @@
+#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6
+msgid "Press releases"
+msgstr ""
+
+#: config/settings_pages.php:11
+msgid "Save"
+msgstr ""
+
+#: config/settings.php:12
+msgid "Additional message"
+msgstr ""
+
+#: config/settings.php:13
+msgid "An additional message that will be added to each press release."
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:108
+msgid "Class does not exist"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:128
+msgid "Inactive"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:136
+msgid "Minimal version:"
+msgstr ""
