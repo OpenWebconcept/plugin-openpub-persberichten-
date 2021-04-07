@@ -23,7 +23,7 @@ class RestAPIServiceProvider extends ServiceProvider
         $this->plugin->loader->addFilter('rest_api_init', $this, 'registerRoutes');
         $this->plugin->loader->addFilter('owc/config-expander/rest-api/whitelist', [$this, 'whitelist'], 10, 1);
 
-        // $this->registerModelFields();
+        $this->registerModelFields();
     }
 
     public function registerRoutes()
@@ -31,6 +31,12 @@ class RestAPIServiceProvider extends ServiceProvider
         register_rest_route($this->namespace, 'persberichten', [
             'methods'             => WP_REST_Server::READABLE,
             'callback'            => [new PersberichtenController($this->plugin), 'getItems'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        register_rest_route($this->namespace, 'persberichten/type/(?<type>[\w-]+)', [
+            'methods'             => WP_REST_Server::READABLE,
+            'callback'            => [new PersberichtenController($this->plugin), 'getTypeFilteredItems'],
             'permission_callback' => '__return_true',
         ]);
     }
@@ -56,5 +62,26 @@ class RestAPIServiceProvider extends ServiceProvider
         }
 
         return $whitelist;
+    }
+
+    /**
+     * Register fields for all configured posttypes.
+     *
+     * @return void
+     */
+    private function registerModelFields(): void
+    {
+        // Add global fields for all Models.
+        foreach ($this->plugin->config->get('api.models') as $posttype => $data) {
+            foreach ($data['fields'] as $key => $creator) {
+                $class = '\OWC\OpenPub\Persberichten\Repositories\\' . ucfirst($posttype);
+                if (class_exists($class)) {
+                    $creator = new $creator($this->plugin);
+                    $class::addGlobalField($key, $creator, function () use ($creator) {
+                        return $creator->executeCondition()();
+                    });
+                }
+            }
+        }
     }
 }
