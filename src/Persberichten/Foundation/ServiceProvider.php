@@ -2,7 +2,7 @@
 
 namespace OWC\OpenPub\Persberichten\Foundation;
 
-use OWC\OpenPub\Base\Settings\SettingsPageOptions;
+use OWC\OpenPub\Persberichten\Settings\SettingsPageOptions;
 
 /**
  * Provider which handles the registration of the plugin.
@@ -26,7 +26,7 @@ abstract class ServiceProvider
     public function __construct(Plugin $plugin)
     {
         $this->plugin           = $plugin;
-        // $this->plugin->settings = SettingsPageOptions::make();
+        $this->plugin->settings = SettingsPageOptions::make();
     }
 
     /**
