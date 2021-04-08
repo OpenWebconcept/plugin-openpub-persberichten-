@@ -22,8 +22,8 @@ return [
             'show_in_rest' => true,
             'admin_cols'   => [
                 'type' => [
-                    'title'    => _x('Type', 'Admin Filter definition', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub-press-type',
+                    'title'    => __('Type', 'openpub-persberichten'),
+                    'taxonomy' => 'openpub-press-mailing-list',
                 ],
                 'expired' => [
                     'title'    => __('Expired', 'openpub-persberichten'),
@@ -55,32 +55,32 @@ return [
             // Add a dropdown filter to the admin screen:
             'admin_filters' => [
                 'type' => [
-                    'title'    => _x('Type', 'Admin Filter definition', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub-press-type',
+                    'title'    => __('Type', 'openpub-persberichten'),
+                    'taxonomy' => 'openpub-press-mailing-list',
                 ],
             ],
             'labels' => [
-                'singular_name'      => __('Persbericht', 'openpub-persberichten'),
-                'menu_name'          => __('Persberichten', 'openpub-persberichten'),
-                'name_admin_bar'     => __('Nieuw persbericht', 'openpub-persberichten'),
-                'add_new'            => __('Voeg nieuw persbericht toe', 'openpub-persberichten'),
-                'add_new_item'       => __('Voeg persbericht toe', 'openpub-persberichten'),
-                'new_item'           => __('Nieuw persbericht', 'openpub-persberichten'),
-                'edit_item'          => __('Wijzig persbericht', 'openpub-persberichten'),
-                'view_item'          => __('Bekijk persbericht', 'openpub-persberichten'),
-                'all_items'          => __('Alle persberichten', 'openpub-persberichten'),
-                'search_items'       => __('Zoek persbericht', 'openpub-persberichten'),
-                'parent_item_colon'  => __('Hoofd persberichten:', 'openpub-persberichten'),
-                'not_found'          => __('Geen persberichten gevonden.', 'openpub-persberichten'),
-                'not_found_in_trash' => __('Geen persberichten gevonden in de prullenbak.', 'openpub-persberichten'),
+                'singular_name'      => __('Press release', 'openpub-persberichten'),
+                'menu_name'          => __('Press releases', 'openpub-persberichten'),
+                'name_admin_bar'     => __('New press release', 'openpub-persberichten'),
+                'add_new'            => __('Add new press release', 'openpub-persberichten'),
+                'add_new_item'       => __('Add press release', 'openpub-persberichten'),
+                'new_item'           => __('New press release', 'openpub-persberichten'),
+                'edit_item'          => __('Edit press release', 'openpub-persberichten'),
+                'view_item'          => __('View press release', 'openpub-persberichten'),
+                'all_items'          => __('All press releases', 'openpub-persberichten'),
+                'search_items'       => __('Search press release', 'openpub-persberichten'),
+                'parent_item_colon'  => __('Parent press release:', 'openpub-persberichten'),
+                'not_found'          => __('No press releases found.', 'openpub-persberichten'),
+                'not_found_in_trash' => __('No press releases found in trash.', 'openpub-persberichten'),
             ],
         ],
         // Override the base names used for labels:
         'names' => [
-            'slug'     => 'openpub-press-item',
-            'singular' => _x('Persbericht', 'Posttype definition', 'openpub-persberichten'),
-            'plural'   => _x('Persberichten', 'Posttype definition', 'openpub-persberichten'),
-            'name'     => _x('Persberichten', 'post type general name', 'openpub-persberichten'),
+            'slug'     => 'persberichten',
+            'singular' => __('Press release', 'openpub-persberichten'),
+            'plural'   => __('Press releases', 'openpub-persberichten'),
+            'name'     => __('Press releases', 'openpub-persberichten'),
         ],
     ],
 ];

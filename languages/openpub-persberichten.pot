@@ -1,4 +1,4 @@
-#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6
+#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
 msgid "Press releases"
 msgstr ""
 
@@ -11,7 +11,107 @@ msgid "Additional message"
 msgstr ""
 
 #: config/settings.php:13
-msgid "An additional message that will be added to each press release."
+msgid "Additional info that will be added to each press release."
+msgstr ""
+
+#: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25
+msgid "Mailing list"
+msgstr ""
+
+#: config/taxonomies.php:12
+msgid "Search mailing lists"
+msgstr ""
+
+#: config/taxonomies.php:13
+msgid "All mailing lists"
+msgstr ""
+
+#: config/taxonomies.php:14 config/taxonomies.php:15
+msgid "Parent mailing list"
+msgstr ""
+
+#: config/taxonomies.php:16
+msgid "Edit mailing list"
+msgstr ""
+
+#: config/taxonomies.php:16
+msgid "Update mailing list"
+msgstr ""
+
+#: config/taxonomies.php:18
+msgid "Add new mailing list"
+msgstr ""
+
+#: config/taxonomies.php:18
+msgid "New mailing list"
+msgstr ""
+
+#: config/taxonomies.php:26
+msgid "Mailing lists"
+msgstr ""
+
+#: config/posttypes.php:25 config/posttypes.php:58
+msgid "Type"
+msgstr ""
+
+#: config/posttypes.php:29 config/posttypes.php:37
+msgid "Expired"
+msgstr ""
+
+#: config/posttypes.php:41
+msgid "No expire date"
+msgstr ""
+
+#: config/posttypes.php:43
+msgid "Will expire on"
+msgstr ""
+
+#: config/posttypes.php:49
+msgid "Published"
+msgstr ""
+
+#: config/posttypes.php:63 config/posttypes.php:81
+msgid "Press release"
+msgstr ""
+
+#: config/posttypes.php:65 config/posttypes.php:68
+msgid "New press release"
+msgstr ""
+
+#: config/posttypes.php:66
+msgid "Add new press release"
+msgstr ""
+
+#: config/posttypes.php:67
+msgid "Add press release"
+msgstr ""
+
+#: config/posttypes.php:69
+msgid "Edit press release"
+msgstr ""
+
+#: config/posttypes.php:70
+msgid "View press release"
+msgstr ""
+
+#: config/posttypes.php:71
+msgid "All press releases"
+msgstr ""
+
+#: config/posttypes.php:72
+msgid "Search press release"
+msgstr ""
+
+#: config/posttypes.php:73
+msgid "Parent press release:"
+msgstr ""
+
+#: config/posttypes.php:74
+msgid "No press releases found."
+msgstr ""
+
+#: config/posttypes.php:75
+msgid "No press releases found in trash."
 msgstr ""
 
 #: src/Persberichten/Foundation/DependencyChecker.php:108

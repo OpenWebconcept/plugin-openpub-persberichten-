@@ -23,6 +23,6 @@ class TypeField extends CreatesFields
     {
         $itemModel = Persbericht::makeFrom($post);
 
-        return $itemModel->getTerms('openpub-press-type');
+        return $itemModel->getTerms('openpub-press-mailing-list');
     }
 }
