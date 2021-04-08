@@ -9,10 +9,10 @@ return [
         'fields'         => [
             'settings' => [
                 'settings_additional_message'  => [
-                    'name' => __('Additional message', 'openpub-persberichten'),
-                    'desc' => __('An additional message that will be added to each press release.', 'openpub-persberichten'),
+                    'name' => __('Additional info', 'openpub-persberichten'),
+                    'desc' => __('Additional info that will be added to each press release.', 'openpub-persberichten'),
                     'id'   => 'setting_additional_message',
-                    'type' => 'textarea',
+                    'type' => 'wysiwyg',
                 ]
             ],
         ],

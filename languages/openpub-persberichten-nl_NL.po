@@ -1,4 +1,4 @@
-#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6
+#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
 msgid "Press releases"
 msgstr "Persberichten"
 
@@ -7,12 +7,112 @@ msgid "Save"
 msgstr "Opslaan"
 
 #: config/settings.php:12
-msgid "Additional message"
-msgstr "Aanvullend bericht"
+msgid "Additional info"
+msgstr "Aanvullend informatie"
 
 #: config/settings.php:13
-msgid "An additional message that will be added to each press release."
-msgstr "Een aanvullend bericht dat aan ieder persbericht wordt toegevoegd."
+msgid "Additional info that will be added to each press release."
+msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
+
+#: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25
+msgid "Mailing list"
+msgstr "Verzendlijst"
+
+#: config/taxonomies.php:12
+msgid "Search mailing lists"
+msgstr "Zoek verzendlijst"
+
+#: config/taxonomies.php:13
+msgid "All mailing lists"
+msgstr "Alle verzendlijsten"
+
+#: config/taxonomies.php:14 config/taxonomies.php:15
+msgid "Parent mailing list"
+msgstr "Hoofd verzendlijst"
+
+#: config/taxonomies.php:16
+msgid "Edit mailing list"
+msgstr "Wijzig verzendlijst"
+
+#: config/taxonomies.php:16
+msgid "Update mailing list"
+msgstr "Verzendlijst bijwerken"
+
+#: config/taxonomies.php:18
+msgid "Add new mailing list"
+msgstr "Voeg verzendlijst toe"
+
+#: config/taxonomies.php:18
+msgid "New mailing list"
+msgstr "Nieuwe verzendlijst"
+
+#: config/taxonomies.php:20 config/taxonomies.php:26
+msgid "Mailing lists"
+msgstr "Verzendlijsten"
+
+#: config/posttypes.php:25 config/posttypes.php:58
+msgid "Type"
+msgstr ""
+
+#: config/posttypes.php:29 config/posttypes.php:37
+msgid "Expired"
+msgstr "Verlopen"
+
+#: config/posttypes.php:41
+msgid "No expire date"
+msgstr "Geen verloopdatum"
+
+#: config/posttypes.php:43
+msgid "Will expire on"
+msgstr "Is verlopen op"
+
+#: config/posttypes.php:49
+msgid "Published"
+msgstr "Gepubliceerd"
+
+#: config/posttypes.php:63 config/posttypes.php:81
+msgid "Press release"
+msgstr "Persbericht"
+
+#: config/posttypes.php:65 config/posttypes.php:68
+msgid "New press release"
+msgstr "Nieuw persbericht"
+
+#: config/posttypes.php:66
+msgid "Add new press release"
+msgstr "Voeg nieuw persbericht toe"
+
+#: config/posttypes.php:67
+msgid "Add press release"
+msgstr "Voeg persbericht toe"
+
+#: config/posttypes.php:69
+msgid "Edit press release"
+msgstr "Wijzig persbericht"
+
+#: config/posttypes.php:70
+msgid "View press release"
+msgstr "Bekijk persbericht"
+
+#: config/posttypes.php:71
+msgid "All press releases"
+msgstr "Alle persberichten"
+
+#: config/posttypes.php:72
+msgid "Search press release"
+msgstr "Zoek persbericht"
+
+#: config/posttypes.php:73
+msgid "Parent press release:"
+msgstr "Hoofd persberichten:"
+
+#: config/posttypes.php:74
+msgid "No press releases found."
+msgstr "Geen persberichten gevonden."
+
+#: config/posttypes.php:75
+msgid "No press releases found in trash."
+msgstr "Geen persberichten gevonden in de prullenbak."
 
 #: src/Persberichten/Foundation/DependencyChecker.php:108
 msgid "Class does not exist"

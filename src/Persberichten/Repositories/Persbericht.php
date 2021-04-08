@@ -34,12 +34,13 @@ class Persbericht extends AbstractRepository
     public function transform(WP_Post $post)
     {
         $data = [
-            'id'      => $post->ID,
-            'title'   => $post->post_title,
-            'content' => $this->addAdditionalMessage($post),
-            'excerpt' => $post->post_excerpt,
-            'date'    => $post->post_date,
-            'slug'    => $post->post_name
+            'id'                => $post->ID,
+            'title'             => $post->post_title,
+            'content'           => apply_filters('the_content', $post->post_content),
+            'additional_info'   => $this->addAdditionalMessage(),
+            'excerpt'           => $post->post_excerpt,
+            'date'              => $post->post_date,
+            'slug'              => $post->post_name
         ];
 
         $data = $this->assignFields($data, $post);
@@ -50,18 +51,15 @@ class Persbericht extends AbstractRepository
     /**
      * Add additional message to content.
      *
-     * @param WP_Post $post
      * @return string
      */
-    protected function addAdditionalMessage(WP_Post $post): string
+    protected function addAdditionalMessage(): string
     {
-        $content = apply_filters('the_content', $post->post_content);
-
-        if (!empty($this->plugin->settings->getAdditionalMessage())) {
-            $content .= $this->plugin->settings->getAdditionalMessage();
+        if (empty($this->plugin->settings->getAdditionalMessage())) {
+            return '';
         }
 
-        return $content;
+        return $this->plugin->settings->getAdditionalMessage();
     }
 
     /**
@@ -76,7 +74,7 @@ class Persbericht extends AbstractRepository
         return [
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub-press-type',
+                    'taxonomy' => 'openpub-press-mailing-list',
                     'terms'    => $type,
                     'field'    => 'slug'
                 ]
