@@ -45,7 +45,7 @@ class PostTypeServiceProvider extends ServiceProvider
     }
 
     /**
-     * register custom posttypes.
+     * Register custom posttypes.
      */
     public function registerPostTypes()
     {

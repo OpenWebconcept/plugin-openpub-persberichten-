@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'openpub-press-mailing-list' => [
+    'openpub_press_mailing_list' => [
         'object_types' => ['openpub-press-item'],
         'args'         => [
             'show_in_rest'      => true,
@@ -24,7 +24,7 @@ return [
             # Override the base names used for labels:
             'singular' => __('Mailing list', 'openpub-persberichten'),
             'plural'   => __('Mailing lists', 'openpub-persberichten'),
-            'slug'     => 'openpub-press-mailing-list'
+            'slug'     => 'verzendlijst'
         ]
     ],
 ];

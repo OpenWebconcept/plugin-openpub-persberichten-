@@ -14,7 +14,7 @@ msgstr ""
 msgid "Additional info that will be added to each press release."
 msgstr ""
 
-#: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25
+#: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25 config/posttypes.php:25 config/posttypes.php:58
 msgid "Mailing list"
 msgstr ""
 
@@ -48,10 +48,6 @@ msgstr ""
 
 #: config/taxonomies.php:26
 msgid "Mailing lists"
-msgstr ""
-
-#: config/posttypes.php:25 config/posttypes.php:58
-msgid "Type"
 msgstr ""
 
 #: config/posttypes.php:29 config/posttypes.php:37
@@ -124,4 +120,12 @@ msgstr ""
 
 #: src/Persberichten/Foundation/DependencyChecker.php:136
 msgid "Minimal version:"
+msgstr ""
+
+#: src/Persberichten/Taxonomy/TaxonomyController.php:14 src/Persberichten/Taxonomy/TaxonomyController.php:30 src/Persberichten/Taxonomy/TaxonomyController.php:41
+msgid "Mailinglist ID"
+msgstr ""
+
+#: src/Persberichten/Taxonomy/TaxonomyController.php:16 src/Persberichten/Taxonomy/TaxonomyController.php:34
+msgid "The id of the mailinglist in Laposta."
 msgstr ""
