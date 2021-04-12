@@ -21,7 +21,7 @@ class RestAPIServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->plugin->loader->addFilter('rest_api_init', $this, 'registerRoutes');
-        $this->plugin->loader->addFilter('owc/config-expander/rest-api/whitelist', [$this, 'whitelist'], 10, 1);
+        $this->plugin->loader->addFilter('owc/config-expander/rest-api/whitelist', $this, 'whitelist', 10, 1);
 
         $this->registerModelFields();
     }
@@ -31,6 +31,12 @@ class RestAPIServiceProvider extends ServiceProvider
         register_rest_route($this->namespace, 'persberichten', [
             'methods'             => WP_REST_Server::READABLE,
             'callback'            => [new PersberichtenController($this->plugin), 'getItems'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        register_rest_route($this->namespace, 'persberichten/(?P<id>\d+)', [
+            'methods'             => WP_REST_Server::READABLE,
+            'callback'            => [new PersberichtenController($this->plugin), 'getItem'],
             'permission_callback' => '__return_true',
         ]);
 

@@ -3,6 +3,7 @@
 namespace OWC\OpenPub\Persberichten\Repositories;
 
 use WP_Post;
+use OWC\OpenPub\Persberichten\Models\Persbericht as PressRelease;
 
 class Persbericht extends AbstractRepository
 {
@@ -31,16 +32,21 @@ class Persbericht extends AbstractRepository
      *
      * @return array
      */
-    public function transform(WP_Post $post)
+    public function transform(WP_Post $post): array
     {
+        $pressRelease = PressRelease::makeFrom($post);
+
         $data = [
-            'id'                => $post->ID,
-            'title'             => $post->post_title,
-            'content'           => apply_filters('the_content', $post->post_content),
-            'additional_info'   => $this->addAdditionalMessage(),
-            'excerpt'           => $post->post_excerpt,
-            'date'              => $post->post_date,
-            'slug'              => $post->post_name
+            'id'                => $pressRelease->getID(),
+            'date'              => $pressRelease->getDateI18n('Y-m-d H:i:s'),
+            'portal_url'        => $this->makePortalURL($pressRelease->getPostName()),
+            'title'             => $pressRelease->getTitle(),
+            'image'             => $pressRelease->getThumbnail(),
+            'content'           => $pressRelease->getContent(),
+            'additional_info'   => $this->getAdditionalMessage(),
+            'excerpt'           => $pressRelease->getExcerpt(),
+            'slug'              => $pressRelease->getPostName(),
+            'type'              => $pressRelease->getPostType()
         ];
 
         $data = $this->assignFields($data, $post);
@@ -48,12 +54,29 @@ class Persbericht extends AbstractRepository
         return $data;
     }
 
+    protected function makePortalURL(string $slug): string
+    {
+        $link = '';
+
+        if (!empty($this->plugin->settings->getPortalURL())) {
+            $link .= trailingslashit($this->plugin->settings->getPortalURL());
+        }
+
+        if (!empty($this->plugin->settings->getPortalItemSlug())) {
+            $link .= trailingslashit($this->plugin->settings->getPortalItemSlug());
+        }
+
+        $link .= $slug;
+
+        return $link;
+    }
+
     /**
-     * Add additional message to content.
+     * Add additional message to post content.
      *
      * @return string
      */
-    protected function addAdditionalMessage(): string
+    protected function getAdditionalMessage(): string
     {
         if (empty($this->plugin->settings->getAdditionalMessage())) {
             return '';
@@ -71,6 +94,10 @@ class Persbericht extends AbstractRepository
      */
     public static function addFilterTypeParameters(string $type = ''): array
     {
+        if (empty($type)) {
+            return [];
+        }
+
         return [
             'tax_query' => [
                 [
@@ -78,7 +105,7 @@ class Persbericht extends AbstractRepository
                     'terms'    => $type,
                     'field'    => 'slug'
                 ]
-            ],
+            ]
         ];
     }
 }

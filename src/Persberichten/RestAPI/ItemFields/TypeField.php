@@ -22,7 +22,12 @@ class TypeField extends CreatesFields
     public function create(WP_Post $post): array
     {
         $itemModel = Persbericht::makeFrom($post);
+        $terms     = $itemModel->getTerms('openpub_press_mailing_list');
 
-        return $itemModel->getTerms('openpub-press-mailing-list');
+        if (!is_array($terms)) {
+            return [];
+        }
+
+        return $terms;
     }
 }

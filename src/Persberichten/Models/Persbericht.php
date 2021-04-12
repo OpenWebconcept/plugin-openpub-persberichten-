@@ -74,7 +74,7 @@ class Persbericht
      */
     public function getTitle(): string
     {
-        return $this->data['post_title'];
+        return $this->data['post_title'] ?? '';
     }
 
     /**
@@ -84,7 +84,7 @@ class Persbericht
      */
     public function getPostName(): string
     {
-        return $this->data['post_name'];
+        return $this->data['post_name'] ?? '';
     }
 
     /**

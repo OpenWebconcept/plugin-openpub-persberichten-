@@ -12,7 +12,7 @@ return [
          */
         'persbericht'   => [
             'fields' => [
-                'type' => OWC\OpenPub\Persberichten\RestAPI\ItemFields\TypeField::class,
+                'mailinglist' => OWC\OpenPub\Persberichten\RestAPI\ItemFields\TypeField::class,
             ],
         ]
     ],

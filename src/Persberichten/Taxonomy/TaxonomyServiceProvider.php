@@ -19,6 +19,12 @@ class TaxonomyServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->plugin->loader->addAction('init', $this, 'registerTaxonomies');
+        $this->plugin->loader->addAction('openpub_press_mailing_list_add_form_fields', TaxonomyController::class, 'addMailingListField');
+        $this->plugin->loader->addAction('openpub_press_mailing_list_edit_form_fields', TaxonomyController::class, 'editMailingListField', 10, 2);
+        $this->plugin->loader->addFilter('manage_edit-openpub_press_mailing_list_columns', TaxonomyController::class, 'mailingListAdminColumnHeader');
+        $this->plugin->loader->addFilter('manage_openpub_press_mailing_list_custom_column', TaxonomyController::class, 'mailingListAdminColumnValue', 10, 3);
+        $this->plugin->loader->addAction('created_openpub_press_mailing_list', TaxonomyController::class, 'saveMailingListField');
+        $this->plugin->loader->addAction('edited_openpub_press_mailing_list', TaxonomyController::class, 'saveMailingListField');
     }
 
     /**

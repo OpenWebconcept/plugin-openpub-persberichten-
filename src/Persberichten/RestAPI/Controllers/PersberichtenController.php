@@ -21,6 +21,31 @@ class PersberichtenController extends BaseController
         return $this->addPaginator($data, $query);
     }
 
+    /**
+     * Get an individual post item.
+     *
+     * @param WP_REST_Request $request $request
+     *
+     * @return array|WP_Error
+     * @throws \OWC\OpenPub\Base\Exceptions\PropertyNotExistsException
+     * @throws \ReflectionException
+     */
+    public function getItem(WP_REST_Request $request)
+    {
+        $id = (int) $request->get_param('id');
+
+        $item = (new Persbericht($this->plugin))
+            ->find($id);
+
+        if (!$item) {
+            return new WP_Error('no_item_found', sprintf('Item with ID "%d" not found (anymore)', $id), [
+                'status' => 404,
+            ]);
+        }
+
+        return $item;
+    }
+
     public function getTypeFilteredItems(WP_REST_Request $request)
     {
         $items = (new Persbericht($this->plugin))

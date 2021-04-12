@@ -22,8 +22,8 @@ return [
             'show_in_rest' => true,
             'admin_cols'   => [
                 'type' => [
-                    'title'    => __('Type', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub-press-mailing-list',
+                    'title'    => __('Mailing list', 'openpub-persberichten'),
+                    'taxonomy' => 'openpub_press_mailing_list',
                 ],
                 'expired' => [
                     'title'    => __('Expired', 'openpub-persberichten'),
@@ -55,8 +55,8 @@ return [
             // Add a dropdown filter to the admin screen:
             'admin_filters' => [
                 'type' => [
-                    'title'    => __('Type', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub-press-mailing-list',
+                    'title'    => __('Mailing list', 'openpub-persberichten'),
+                    'taxonomy' => 'openpub_press_mailing_list',
                 ],
             ],
             'labels' => [
