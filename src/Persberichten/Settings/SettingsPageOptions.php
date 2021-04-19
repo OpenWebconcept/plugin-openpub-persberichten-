@@ -52,7 +52,7 @@ class SettingsPageOptions
             '_owc_setting_additional_message'       => '',
         ];
 
-        $options = get_option('_owc_openpub_press_settings');
+        $options = get_option('_owc_openpub_press_settings', []);
 
         // include openpub-base settings.
         if (is_array(get_option('_owc_openpub_base_settings'))) {
