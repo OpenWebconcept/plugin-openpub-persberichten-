@@ -71,8 +71,8 @@ class SettingsServiceProviderTest extends TestCase
 
         $configSettingsPage = [
             'base' => [
-                'id'          => '_owc_openpub_base_settings',
-                'option_name' => '_owc_openpub_base_settings'
+                'id'          => '_owc_openpub_press_settings',
+                'option_name' => '_owc_openpub_press_settings'
             ]
         ];
 
@@ -88,14 +88,13 @@ class SettingsServiceProviderTest extends TestCase
         ];
 
         $existingSettingsPageAfterMerge = [
-
-            0      => [
+            0 => [
                 'id'          => 'existing_settings_page',
                 'option_name' => 'existing_settings_page'
             ],
             'base' => [
-                'id'          => '_owc_openpub_base_settings',
-                'option_name' => '_owc_openpub_base_settings'
+                'id'          => '_owc_openpub_press_settings',
+                'option_name' => '_owc_openpub_press_settings'
             ]
         ];
 

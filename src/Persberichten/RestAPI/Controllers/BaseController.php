@@ -54,7 +54,7 @@ abstract class BaseController
      *
      * @return array
      */
-    protected function getPaginatorParams(WP_REST_Request $request, int $limit = 10)
+    protected function getPaginatorParams(WP_REST_Request $request, int $limit = 10): array
     {
         return array_merge($request->get_params(), [
             'posts_per_page' => $request->get_param('limit') ?: $limit,

@@ -24,7 +24,7 @@ class PersberichtControllerTest extends TestCase
         $expected = [
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub-press-mailing-list',
+                    'taxonomy' => 'openpub_press_mailing_list',
                     'terms'    => 'test',
                     'field'    => 'slug'
                 ]
@@ -42,7 +42,7 @@ class PersberichtControllerTest extends TestCase
         $expected = [
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub-press-mailing-list',
+                    'taxonomy' => 'openpub_press_mailing_list',
                     'terms'    => 'test',
                     'field'    => 'slug'
                 ]
