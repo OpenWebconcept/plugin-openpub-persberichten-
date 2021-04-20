@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Model for the item
- */
-
 namespace OWC\OpenPub\Persberichten\Models;
 
 /**
@@ -50,7 +46,8 @@ class Persbericht
      * Make Post model from WP_Post object
      *
      * @param \WP_Post $post
-     * @return Post
+     * 
+     * @return Persbericht
      */
     public static function makeFrom(\WP_Post $post)
     {

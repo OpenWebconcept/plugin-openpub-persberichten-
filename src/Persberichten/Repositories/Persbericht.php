@@ -3,27 +3,13 @@
 namespace OWC\OpenPub\Persberichten\Repositories;
 
 use WP_Post;
-use OWC\OpenPub\Persberichten\Models\Persbericht as PressRelease;
+use OWC\OpenPub\Persberichten\Models\Persbericht as PersberichtModel;
 
 class Persbericht extends AbstractRepository
 {
     protected $posttype = 'openpub-press-item';
 
     protected static $globalFields = [];
-
-    /**
-     * Add additional query arguments.
-     *
-     * @param array $args
-     *
-     * @return $this
-     */
-    public function query(array $args)
-    {
-        $this->queryArgs = array_merge($this->queryArgs, $args);
-
-        return $this;
-    }
 
     /**
      * Transform a single WP_Post item.
@@ -34,19 +20,19 @@ class Persbericht extends AbstractRepository
      */
     public function transform(WP_Post $post): array
     {
-        $pressRelease = PressRelease::makeFrom($post);
+        $persbericht = PersberichtModel::makeFrom($post);
 
         $data = [
-            'id'                => $pressRelease->getID(),
-            'date'              => $pressRelease->getDateI18n('Y-m-d H:i:s'),
-            'portal_url'        => $this->makePortalURL($pressRelease->getPostName()),
-            'title'             => $pressRelease->getTitle(),
-            'image'             => $pressRelease->getThumbnail(),
-            'content'           => $pressRelease->getContent(),
+            'id'                => $persbericht->getID(),
+            'date'              => $persbericht->getDateI18n('Y-m-d H:i:s'),
+            'portal_url'        => $this->makePortalURL($persbericht->getPostName()),
+            'title'             => $persbericht->getTitle(),
+            'image'             => $persbericht->getThumbnail(),
+            'content'           => $persbericht->getContent(),
             'additional_info'   => $this->getAdditionalMessage(),
-            'excerpt'           => $pressRelease->getExcerpt(),
-            'slug'              => $pressRelease->getPostName(),
-            'type'              => $pressRelease->getPostType()
+            'excerpt'           => $persbericht->getExcerpt(),
+            'slug'              => $persbericht->getPostName(),
+            'type'              => $persbericht->getPostType()
         ];
 
         $data = $this->assignFields($data, $post);
@@ -54,7 +40,14 @@ class Persbericht extends AbstractRepository
         return $data;
     }
 
-    protected function makePortalURL(string $slug): string
+    /**
+     * Make the portal url used in the portal.
+     *
+     * @param string $slug
+     * 
+     * @return string
+     */
+    public function makePortalURL(string $slug): string
     {
         $link = '';
 
@@ -76,7 +69,7 @@ class Persbericht extends AbstractRepository
      *
      * @return string
      */
-    protected function getAdditionalMessage(): string
+    public function getAdditionalMessage(): string
     {
         if (empty($this->plugin->settings->getAdditionalMessage())) {
             return '';
@@ -101,7 +94,7 @@ class Persbericht extends AbstractRepository
         return [
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub-press-mailing-list',
+                    'taxonomy' => 'openpub_press_mailing_list',
                     'terms'    => $type,
                     'field'    => 'slug'
                 ]

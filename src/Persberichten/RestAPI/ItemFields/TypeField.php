@@ -1,13 +1,9 @@
 <?php
 
-/**
- * Adds portal url field to the output.
- */
-
 namespace OWC\OpenPub\Persberichten\RestAPI\ItemFields;
 
-use OWC\OpenPub\Persberichten\Models\Persbericht;
 use OWC\OpenPub\Persberichten\Support\CreatesFields;
+use OWC\OpenPub\Persberichten\Models\Persbericht;
 use WP_Post;
 
 class TypeField extends CreatesFields
