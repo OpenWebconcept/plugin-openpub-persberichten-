@@ -31,7 +31,7 @@ class SettingsPageOptions
      */
     public function getPortalItemSlug(): string
     {
-        return $this->settings['_owc_setting_portal_openpub_item_slug'] ?? '';
+        return $this->settings['_owc_setting_portal_press_release_item_slug'] ?? '';
     }
 
     /**
@@ -47,16 +47,16 @@ class SettingsPageOptions
     public static function make(): self
     {
         $defaultSettings = [
-            '_owc_setting_portal_url'               => '',
-            '_owc_setting_portal_openpub_item_slug' => '',
-            '_owc_setting_additional_message'       => '',
+            '_owc_setting_portal_url'                     => '',
+            '_owc_setting_portal_press_release_item_slug' => '',
+            '_owc_setting_additional_message'             => '',
         ];
 
         $options = get_option('_owc_openpub_press_settings', []);
 
         // include openpub-base settings.
         if (is_array(get_option('_owc_openpub_base_settings'))) {
-            $options = array_merge($options, get_option('_owc_openpub_base_settings'));
+            $options = array_merge($options, get_option('_owc_openpub_base_settings', []));
         };
 
         return new static(wp_parse_args($options, $defaultSettings));

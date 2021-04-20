@@ -15,9 +15,9 @@ class SettingsPageOptionsTest extends TestCase
         \WP_Mock::setUp();
 
         $this->settingsPageOptions = new SettingsPageOptions([
-            '_owc_setting_portal_url'               => 'https://www.test.nl',
-            '_owc_setting_portal_openpub_item_slug' => 'persbericht',
-            '_owc_setting_additional_message'       => 'Extra bericht',
+            '_owc_setting_portal_url'                     => 'https://www.test.nl',
+            '_owc_setting_portal_press_release_item_slug' => 'persbericht',
+            '_owc_setting_additional_message'             => 'Extra bericht',
         ]);
     }
 

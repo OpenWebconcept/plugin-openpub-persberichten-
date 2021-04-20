@@ -7,11 +7,19 @@ msgid "Save"
 msgstr "Opslaan"
 
 #: config/settings.php:12
-msgid "Additional info"
-msgstr "Aanvullend informatie"
+msgid "Portal press release item slug"
+msgstr "Portal persbericht item slug"
 
 #: config/settings.php:13
-msgid "Additional info that will be added to each press release."
+msgid "URL for press release items in the portal, eg \"persberichten\""
+msgstr "URL voor persberichten in de portal, bv \"persberichten\""
+
+#: config/settings.php:18
+msgid "Additional message"
+msgstr "Aanvullend informatie"
+
+#: config/settings.php:19
+msgid "Additional message that will be added to each press release."
 msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
 
 #: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25 config/posttypes.php:25 config/posttypes.php:58
