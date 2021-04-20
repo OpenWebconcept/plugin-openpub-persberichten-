@@ -25,5 +25,12 @@ return [
      * Type: class
      * - Required: name
      */
-    'dependencies' => [],
+    'dependencies' => [
+        [
+            'type'    => 'plugin',
+            'label'   => 'Yard | OpenPub Base',
+            'version' => '2.0.0',
+            'file'    => 'openpub-base/openpub-base.php',
+        ],
+    ],
 ];
