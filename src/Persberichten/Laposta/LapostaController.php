@@ -3,6 +3,7 @@
 namespace OWC\OpenPub\Persberichten\Laposta;
 
 use OWC\OpenPub\Persberichten\Models\Persbericht;
+use \WP_Post;
 
 class LapostaController
 {
@@ -40,11 +41,11 @@ class LapostaController
      * Fires after the first publication of a press release.
      * Send post content to a laposta campaign.
      *
-     * @param \WP_Post $post
+     * @param WP_Post $post
      * 
      * @return void
      */
-    protected function handleLaposta(\WP_Post $post): void
+    protected function handleLaposta(WP_Post $post): void
     {
         $pressRelease = Persbericht::makeFrom($post);
         $mailingLists = $pressRelease->getTerms('openpub_press_mailing_list');
@@ -113,12 +114,12 @@ class LapostaController
      * Push to laposta campaign.
      *
      * @param string $endpoint
-     * @param \WP_Post $post
+     * @param WP_Post $post
      * @param string $mailingListID
      * 
      * @return void
      */
-    protected function pushToCampaign(string $endpoint, \WP_Post $post, string $mailingListID): void
+    protected function pushToCampaign(string $endpoint, WP_Post $post, string $mailingListID): void
     {
         $requestBody = $this->makeRequestBody($post, $mailingListID);
         $result      = $this->request->request($endpoint, 'POST', $requestBody);
@@ -131,7 +132,7 @@ class LapostaController
         die;
     }
 
-    protected function makeRequestBody(\WP_Post $post, string $mailingListID): array
+    protected function makeRequestBody(WP_Post $post, string $mailingListID): array
     {
         return [
             'campaign_id'   => $mailingListID,
