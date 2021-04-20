@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Yard | OpenPub Persberichten
  * Plugin URI:        https://www.openwebconcept.nl/
- * Description:       Acts as foundation for other OpenPub related content plugins. This plugin implements actions to allow for other plugins to add and/or change Custom Posttypes, Metaboxes, Taxonomies, en Posts 2 posts relations.
+ * Description:       Press releases are a variation on OpenPub items. A press release can be added to a laposta campaign based on the connected taxonomy. This only happens when the press release is saved for the first time.
  * Version:           0.0.1
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
