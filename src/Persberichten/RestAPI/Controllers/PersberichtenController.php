@@ -46,6 +46,29 @@ class PersberichtenController extends BaseController
         return $item;
     }
 
+    /**
+     * Get an individual post item by slug.
+     *
+     * @param $request $request
+     *
+     * @return array|WP_Error
+     */
+    public function getItemBySlug(WP_REST_Request $request)
+    {
+        $slug = $request->get_param('slug');
+
+        $item = (new Persbericht($this->plugin))
+            ->findBySlug($slug);
+
+        if (!$item) {
+            return new WP_Error('no_item_found', sprintf('Item with slug "%s" not found', $slug), [
+                'status' => 404,
+            ]);
+        }
+
+        return $item;
+    }
+
     public function getTypeFilteredItems(WP_REST_Request $request)
     {
         $items = (new Persbericht($this->plugin))
