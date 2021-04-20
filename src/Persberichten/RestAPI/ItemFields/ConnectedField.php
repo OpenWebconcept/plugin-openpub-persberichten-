@@ -61,16 +61,16 @@ class ConnectedField extends CreatesFields
     }
 
     /**
-     * Get connected items and exlude current post.
+     * Get connected items and exclude current post.
      *
-     * @param array $IDs
+     * @param array $mailingListIDs
      * @param integer $persberichtID
      * 
      * @return array
      */
-    protected function getConnectedItems(array $IDs, int $persberichtID): array
+    protected function getConnectedItems(array $mailingListIDs, int $persberichtID): array
     {
-        $items = $this->query($IDs, $persberichtID);
+        $items = $this->query($mailingListIDs, $persberichtID);
 
         if (empty($items)) {
             return [];
@@ -97,12 +97,12 @@ class ConnectedField extends CreatesFields
     /**
      * Get connected items based on taxonomy.
      *
-     * @param array $IDs
+     * @param array $mailingListIDs
      * @param integer $persberichtID
      * 
      * @return array
      */
-    protected function query(array $IDs, int $persberichtID): array
+    protected function query(array $mailingListIDs, int $persberichtID): array
     {
         $args = [
             'post_type' => 'openpub-press-item',
@@ -110,7 +110,7 @@ class ConnectedField extends CreatesFields
                 [
                     'taxonomy' => 'openpub_press_mailing_list',
                     'field'    => 'term_id',
-                    'terms'    => $IDs,
+                    'terms'    => $mailingListIDs,
                 ]
             ],
             'post__not_in' => [$persberichtID]
