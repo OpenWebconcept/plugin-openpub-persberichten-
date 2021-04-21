@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Models;
+namespace OWC\Persberichten\Models;
 
 /**
  * Model for the item

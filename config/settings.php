@@ -8,6 +8,12 @@ return [
         'tab'            => 'pressreleases',
         'fields'         => [
             'settings' => [
+                'portal_url'        => [
+                    'name' => __('Portal URL', 'openpub-persberichten'),
+                    'desc' => __('URL including http(s)://', 'openpub-persberichten'),
+                    'id'   => 'setting_portal_url',
+                    'type' => 'text',
+                ],
                 'settings_press_release_slug' => [
                     'name' => __('Portal press release item slug', 'openpub-persberichten'),
                     'desc' => __('URL for press release items in the portal, eg "persberichten"', 'openpub-persberichten'),

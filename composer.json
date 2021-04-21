@@ -26,12 +26,12 @@
     },
     "autoload": {
       "psr-4": {
-        "OWC\\OpenPub\\Persberichten\\": "./src/Persberichten"
+        "OWC\\Persberichten\\": "./src/Persberichten"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "OWC\\OpenPub\\Persberichten\\Tests\\": "./tests/Unit"
+        "OWC\\Persberichten\\Tests\\": "./tests/Unit"
       }
     },
     "scripts": {

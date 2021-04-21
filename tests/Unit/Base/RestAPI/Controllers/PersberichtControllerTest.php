@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Base\RestAPI\Controllers;
+namespace OWC\Persberichten\Tests\Base\RestAPI\Controllers;
 
-use OWC\OpenPub\Persberichten\Repositories\Persbericht;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Repositories\Persbericht;
+use OWC\Persberichten\Tests\TestCase;
 use WP_Mock;
 
 class PersberichtControllerTest extends TestCase

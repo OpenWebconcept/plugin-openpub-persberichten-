@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\RestAPI;
+namespace OWC\Persberichten\RestAPI;
 
-use OWC\OpenPub\Persberichten\Foundation\ServiceProvider;
-use OWC\OpenPub\Persberichten\RestAPI\Controllers\PersberichtenController;
+use OWC\Persberichten\Foundation\ServiceProvider;
+use OWC\Persberichten\RestAPI\Controllers\PersberichtenController;
 use WP_REST_Server;
 
 class RestAPIServiceProvider extends ServiceProvider
@@ -86,7 +86,7 @@ class RestAPIServiceProvider extends ServiceProvider
         // Add global fields for all Models.
         foreach ($this->plugin->config->get('api.models') as $posttype => $data) {
             foreach ($data['fields'] as $key => $creator) {
-                $class = '\OWC\OpenPub\Persberichten\Repositories\\' . ucfirst($posttype);
+                $class = '\OWC\Persberichten\Repositories\\' . ucfirst($posttype);
                 if (class_exists($class)) {
                     $creator = new $creator($this->plugin);
                     $class::addGlobalField($key, $creator, function () use ($creator) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\RestAPI\Controllers;
+namespace OWC\Persberichten\RestAPI\Controllers;
 
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Foundation\Plugin;
 use WP_Query;
 use WP_REST_Request;
 

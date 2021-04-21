@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Foundation;
+namespace OWC\Persberichten\Foundation;
 
 /**
  * Config object to store, save and retrieve configurations.

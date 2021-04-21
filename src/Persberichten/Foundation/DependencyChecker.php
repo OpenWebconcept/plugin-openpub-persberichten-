@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Foundation;
+namespace OWC\Persberichten\Foundation;
 
 /**
  * Checks if dependencies are valid.

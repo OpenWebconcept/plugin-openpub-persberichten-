@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Support;
+namespace OWC\Persberichten\Support;
 
 use Closure;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Foundation\Plugin;
 use WP_Post;
 
 abstract class CreatesFields

@@ -1,11 +1,11 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Repositories;
+namespace OWC\Persberichten\Repositories;
 
 use Closure;
-use OWC\OpenPub\Persberichten\Exceptions\PropertyNotExistsException;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
-use OWC\OpenPub\Persberichten\Support\CreatesFields;
+use OWC\Persberichten\Exceptions\PropertyNotExistsException;
+use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Support\CreatesFields;
 use WP_Post;
 use WP_Query;
 

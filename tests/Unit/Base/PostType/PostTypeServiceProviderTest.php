@@ -1,13 +1,13 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Persberichten\PostType;
+namespace OWC\Persberichten\Tests\Persberichten\PostType;
 
 use Mockery as m;
-use OWC\OpenPub\Persberichten\Foundation\Config;
-use OWC\OpenPub\Persberichten\Foundation\Loader;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
-use OWC\OpenPub\Persberichten\PostType\PostTypeServiceProvider;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Foundation\Config;
+use OWC\Persberichten\Foundation\Loader;
+use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\PostType\PostTypeServiceProvider;
+use OWC\Persberichten\Tests\TestCase;
 use WP_Mock;
 
 class PostTypeServiceProviderTest extends TestCase
@@ -18,17 +18,23 @@ class PostTypeServiceProviderTest extends TestCase
 
         \WP_Mock::userFunction('wp_parse_args', [
             'return' => [
-                '_owc_setting_portal_url'                       => '',
-                '_owc_setting_portal_openpub_item_slug'         => '',
-                '_owc_setting_use_portal_url'                   => 0,
+                '_owc_setting_portal_url'                     => '',
+                '_owc_setting_portal_openpub_item_slug'       => '',
+                '_owc_setting_use_portal_url'                 => 0,
+                '_owc_setting_use_escape_element'             => 0,
+                '_owc_setting_portal_press_release_item_slug' => '',
+                '_owc_setting_additional_message'             => ''
             ]
         ]);
 
         \WP_Mock::userFunction('get_option', [
             'return' => [
-                '_owc_setting_portal_url'                       => '',
-                '_owc_setting_portal_openpub_item_slug'         => '',
-                '_owc_setting_use_portal_url'                   => 0,
+                '_owc_setting_portal_url'                     => '',
+                '_owc_setting_portal_openpub_item_slug'       => '',
+                '_owc_setting_use_portal_url'                 => 0,
+                '_owc_setting_use_escape_element'             => 0,
+                '_owc_setting_portal_press_release_item_slug' => '',
+                '_owc_setting_additional_message'             => ''
             ]
         ]);
     }
@@ -47,6 +53,11 @@ class PostTypeServiceProviderTest extends TestCase
         $plugin->config = $config;
         $plugin->loader = m::mock(Loader::class);
 
+        // use function is_plugin_active
+        \WP_Mock::userFunction('is_plugin_active', [
+            'return' => true
+        ]);
+
         $service = new PostTypeServiceProvider($plugin);
 
         $this->post     = m::mock(WP_Post::class);
@@ -63,21 +74,6 @@ class PostTypeServiceProviderTest extends TestCase
             $service,
             'orderByPublishedDate',
         ])->once();
-
-        // WP_Mock::passthruFunction('handleSave', [
-        //     'times'  => '0+',
-        //     'return' => null
-        // ]);
-
-        /**
-         * Examples of registering post types: http://johnbillion.com/extended-cpts/
-         */
-        $configPostTypes = [
-            'posttype' => [
-                'args'  => [],
-                'names' => [],
-            ],
-        ];
 
         $service->register();
 

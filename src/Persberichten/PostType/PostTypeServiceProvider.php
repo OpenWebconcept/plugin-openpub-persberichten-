@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\PostType;
+namespace OWC\Persberichten\PostType;
 
-use OWC\OpenPub\Persberichten\Foundation\ServiceProvider;
+use OWC\Persberichten\Foundation\ServiceProvider;
 use WP_Query;
 
 class PostTypeServiceProvider extends ServiceProvider

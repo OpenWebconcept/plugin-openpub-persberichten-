@@ -1,13 +1,13 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Base\RestAPI;
+namespace OWC\Persberichten\Tests\Base\RestAPI;
 
 use Mockery as m;
-use OWC\OpenPub\Persberichten\Config;
-use OWC\OpenPub\Persberichten\Foundation\Loader;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
-use OWC\OpenPub\Persberichten\RestAPI\RestAPIServiceProvider;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Config;
+use OWC\Persberichten\Foundation\Loader;
+use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\RestAPI\RestAPIServiceProvider;
+use OWC\Persberichten\Tests\TestCase;
 use WP_Mock;
 
 class RestAPIServiceProviderTest extends TestCase
@@ -18,17 +18,23 @@ class RestAPIServiceProviderTest extends TestCase
 
         \WP_Mock::userFunction('wp_parse_args', [
             'return' => [
-                '_owc_setting_portal_url'                       => '',
-                '_owc_setting_portal_openpub_item_slug'         => '',
-                '_owc_setting_use_portal_url'                   => 0,
+                '_owc_setting_portal_url'                     => '',
+                '_owc_setting_portal_openpub_item_slug'       => '',
+                '_owc_setting_use_portal_url'                 => 0,
+                '_owc_setting_use_escape_element'             => 0,
+                '_owc_setting_portal_press_release_item_slug' => '',
+                '_owc_setting_additional_message'             => ''
             ]
         ]);
 
         \WP_Mock::userFunction('get_option', [
             'return' => [
-                '_owc_setting_portal_url'                       => '',
-                '_owc_setting_portal_openpub_item_slug'         => '',
-                '_owc_setting_use_portal_url'                   => 0,
+                '_owc_setting_portal_url'                     => '',
+                '_owc_setting_portal_openpub_item_slug'       => '',
+                '_owc_setting_use_portal_url'                 => 0,
+                '_owc_setting_use_escape_element'             => 0,
+                '_owc_setting_portal_press_release_item_slug' => '',
+                '_owc_setting_additional_message'             => ''
             ]
         ]);
     }
@@ -46,6 +52,11 @@ class RestAPIServiceProviderTest extends TestCase
 
         $plugin->config = $config;
         $plugin->loader = m::mock(Loader::class);
+
+        // use function is_plugin_active
+        \WP_Mock::userFunction('is_plugin_active', [
+            'return' => true
+        ]);
 
         $service = new RestAPIServiceProvider($plugin);
 

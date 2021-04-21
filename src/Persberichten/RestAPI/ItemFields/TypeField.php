@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\RestAPI\ItemFields;
+namespace OWC\Persberichten\RestAPI\ItemFields;
 
-use OWC\OpenPub\Persberichten\Support\CreatesFields;
-use OWC\OpenPub\Persberichten\Models\Persbericht;
+use OWC\Persberichten\Support\CreatesFields;
+use OWC\Persberichten\Models\Persbericht;
 use WP_Post;
 
 class TypeField extends CreatesFields

@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Repositories;
+namespace OWC\Persberichten\Repositories;
 
 use WP_Post;
-use OWC\OpenPub\Persberichten\Models\Persbericht as PersberichtModel;
+use OWC\Persberichten\Models\Persbericht as PersberichtModel;
 
 class Persbericht extends AbstractRepository
 {
@@ -49,19 +49,11 @@ class Persbericht extends AbstractRepository
      */
     public function makePortalURL(string $slug): string
     {
-        $link = '';
-
-        if (!empty($this->plugin->settings->getPortalURL())) {
-            $link .= trailingslashit($this->plugin->settings->getPortalURL());
+        if (empty($this->plugin->settings->getPortalURL()) || empty($this->plugin->settings->getPortalItemSlug())) {
+            return '';
         }
 
-        if (!empty($this->plugin->settings->getPortalItemSlug())) {
-            $link .= trailingslashit($this->plugin->settings->getPortalItemSlug());
-        }
-
-        $link .= $slug;
-
-        return $link;
+        return sprintf('%s/%s/%s', $this->plugin->settings->getPortalURL(), $this->plugin->settings->getPortalItemSlug(), $slug);
     }
 
     /**

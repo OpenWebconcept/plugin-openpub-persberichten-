@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Base\Foundation;
+namespace OWC\Persberichten\Tests\Base\Foundation;
 
-use OWC\OpenPub\Persberichten\Foundation\Config;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Foundation\Config;
+use OWC\Persberichten\Tests\TestCase;
 
 class ConfigTest extends TestCase
 {

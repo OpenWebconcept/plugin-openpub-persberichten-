@@ -1,13 +1,13 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Laposta;
+namespace OWC\Persberichten\Laposta;
 
-use OWC\OpenPub\Persberichten\Foundation\ServiceProvider;
+use OWC\Persberichten\Foundation\ServiceProvider;
 
 class LapostaServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->plugin->loader->addAction('wp_insert_post', new LapostaController(), 'handleSave', 10, 3);
+        $this->plugin->loader->addAction('rest_after_insert_openpub-press-item', new LapostaController($this->plugin), 'handleSave', 10, 3);
     }
 }

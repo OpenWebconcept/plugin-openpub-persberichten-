@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Laposta;
+namespace OWC\Persberichten\Laposta;
 
 class LapostaRequest
 {

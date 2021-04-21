@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Taxonomy;
+namespace OWC\Persberichten\Taxonomy;
 
-use OWC\OpenPub\Persberichten\Foundation\ServiceProvider;
+use OWC\Persberichten\Foundation\ServiceProvider;
 
 class TaxonomyServiceProvider extends ServiceProvider
 {

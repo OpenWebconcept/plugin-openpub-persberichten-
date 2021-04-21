@@ -1,20 +1,29 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Laposta;
+namespace OWC\Persberichten\Laposta;
 
-use OWC\OpenPub\Persberichten\Models\Persbericht;
+use OWC\Persberichten\Models\Persbericht;
+use OWC\Persberichten\Foundation\Plugin;
 use \WP_Post;
 
 class LapostaController
 {
-    public function __construct()
+    /**
+     * Instance of the plugin.
+     *
+     * @var Plugin
+     */
+    protected $plugin;
+
+    public function __construct(Plugin $plugin)
     {
+        $this->plugin   = $plugin;
         $this->request  = new LapostaRequest();
     }
 
-    public function handleSave(int $postID, $post, bool $update): void
+    public function handleSave(WP_Post $post, \WP_REST_Request $request, bool $creating): void
     {
-        if (wp_is_post_revision($postID) || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)) {
+        if (wp_is_post_revision($post->ID) || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)) {
             return;
         }
 
@@ -22,17 +31,17 @@ class LapostaController
             return;
         }
 
-        $alreadyCreated = get_post_meta($postID, '_owc_press_release_is_created', true);
+        $alreadyCreated = get_post_meta($post->ID, '_owc_press_release_is_created', true);
 
         if ($post->post_type !== 'openpub-press-item' || $alreadyCreated === '1') {
             return;
         }
 
         /**
-         * Parameter $update is not reliable because of revisions.
+         * Parameter $creating is not reliable because of revisions.
          * Update the meta so we know the post is created, for future references.
          */
-        update_post_meta($postID, '_owc_press_release_is_created', '1');
+        update_post_meta($post->ID, '_owc_press_release_is_created', '1');
 
         $this->handleLaposta($post);
     }
@@ -63,7 +72,7 @@ class LapostaController
                 continue;
             }
 
-            $this->pushToCampaign($endpoint, $post, $mailingListID);
+            $this->pushToCampaign($endpoint, $pressRelease, $mailingListID);
         }
     }
 
@@ -114,30 +123,56 @@ class LapostaController
      * Push to laposta campaign.
      *
      * @param string $endpoint
-     * @param WP_Post $post
+     * @param Persbericht $pressRelease
      * @param string $mailingListID
      * 
      * @return void
      */
-    protected function pushToCampaign(string $endpoint, WP_Post $post, string $mailingListID): void
+    protected function pushToCampaign(string $endpoint, Persbericht $pressRelease, string $mailingListID): void
     {
-        $requestBody = $this->makeRequestBody($post, $mailingListID);
+        $requestBody = $this->makeRequestBody($pressRelease, $mailingListID);
         $result      = $this->request->request($endpoint, 'POST', $requestBody);
 
         if (isset($result['error']) || empty($result['campaign'])) {
             return;
         }
-
-        var_dump($result);
-        die;
     }
 
-    protected function makeRequestBody(WP_Post $post, string $mailingListID): array
+    /**
+     * Laposta uses the importURL to retrieve the html of an external source.
+     *
+     * @param Persbericht $pressRelease
+     * @param string $mailingListID
+     * 
+     * @return array
+     */
+    protected function makeRequestBody(Persbericht $pressRelease, string $mailingListID): array
     {
+        $importURL = $this->makeImportURL($pressRelease->getPostName());
+
+        if (empty($importURL)) {
+            return [];
+        }
+
         return [
             'campaign_id'   => $mailingListID,
-            // 'html'          => $post->post_content,
-            'import_url'    => 'https://www.google.nl' // dit wordt de single page van een persbericht.
+            'import_url'    => $importURL
         ];
+    }
+
+    /**
+     * Make the required import url for Laposta.
+     *
+     * @param string $slug
+     * 
+     * @return string
+     */
+    protected function makeImportURL(string $slug): string
+    {
+        if (empty($this->plugin->settings->getPortalURL()) || empty($this->plugin->settings->getPortalItemSlug())) {
+            return '';
+        }
+
+        return sprintf('%s/%s/%s/laposta', $this->plugin->settings->getPortalURL(), $this->plugin->settings->getPortalItemSlug(), $slug);
     }
 }

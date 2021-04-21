@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\RestAPI\Controllers;
+namespace OWC\Persberichten\RestAPI\Controllers;
 
-use OWC\OpenPub\Persberichten\Repositories\Persbericht;
+use OWC\Persberichten\Repositories\Persbericht;
 use WP_Error;
 use WP_REST_Request;
 
@@ -25,7 +25,7 @@ class PersberichtenController extends BaseController
      * @param WP_REST_Request $request $request
      *
      * @return array|WP_Error
-     * @throws \OWC\OpenPub\Persberichten\Exceptions\PropertyNotExistsException 
+     * @throws \OWC\Persberichten\Exceptions\PropertyNotExistsException 
      * @throws \ReflectionException
      */
     public function getItem(WP_REST_Request $request)

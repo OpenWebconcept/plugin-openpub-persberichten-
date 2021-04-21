@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Foundation;
+namespace OWC\Persberichten\Foundation;
 
 /**
  * Provider which handles the hooks in the WordPress ecosystem.
