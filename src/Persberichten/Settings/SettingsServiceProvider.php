@@ -1,8 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Settings;
+namespace OWC\Persberichten\Settings;
 
-use OWC\OpenPub\Persberichten\Metabox\MetaboxBaseServiceProvider;
+use OWC\Persberichten\Traits\CheckPluginActive;
+use OWC\Persberichten\Metabox\MetaboxBaseServiceProvider;
 
 class SettingsServiceProvider extends MetaboxBaseServiceProvider
 {
@@ -26,11 +27,16 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
     {
         $settingsPages = $this->plugin->config->get('settings_pages');
 
+        if (!CheckPluginActive::isPluginOpenPubBaseActive()) {
+            // unset the parent of the setting page.
+            unset($settingsPages['pressreleases']['parent']);
+        }
+
         return array_merge($rwmbSettingsPages, $settingsPages);
     }
 
     /**
-     * Register metaboxes for settings page
+     * Register metaboxes for settings page.
      *
      * @param $rwmbMetaboxes
      *
@@ -40,6 +46,11 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
     {
         $configMetaboxes = $this->plugin->config->get('settings');
         $metaboxes       = [];
+
+        if (CheckPluginActive::isPluginOpenPubBaseActive()) {
+            // unset setting because it is already defined in the openpub base plugin.
+            unset($configMetaboxes['pressreleases']['fields']['settings']['portal_url']);
+        }
 
         foreach ($configMetaboxes as $metabox) {
             $metaboxes[] = $this->processMetabox($metabox);

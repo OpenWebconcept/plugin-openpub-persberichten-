@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Foundation;
+namespace OWC\Persberichten\Foundation;
 
-use OWC\OpenPub\Persberichten\Settings\SettingsPageOptions;
+use OWC\Persberichten\Settings\SettingsPageOptions;
 
 /**
  * Provider which handles the registration of the plugin.

@@ -24,7 +24,7 @@ if (!defined('WPINC')) {
  * manual loaded file: the autoloader.
  */
 require_once __DIR__ . '/autoloader.php';
-$autoloader = new OWC\OpenPub\Persberichten\Autoloader();
+$autoloader = new OWC\Persberichten\Autoloader();
 
 /**
  * Begin execution of the plugin
@@ -34,5 +34,5 @@ $autoloader = new OWC\OpenPub\Persberichten\Autoloader();
  * and wp_loaded action hooks.
  */
 \add_action('plugins_loaded', function () {
-    $plugin = (new OWC\OpenPub\Persberichten\Foundation\Plugin(__DIR__))->boot();
+    $plugin = (new OWC\Persberichten\Foundation\Plugin(__DIR__))->boot();
 }, 10);

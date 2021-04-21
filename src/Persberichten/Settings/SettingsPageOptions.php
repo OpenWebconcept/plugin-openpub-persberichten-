@@ -1,6 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Settings;
+namespace OWC\Persberichten\Settings;
+
+use OWC\Persberichten\Traits\CheckPluginActive;
 
 class SettingsPageOptions
 {
@@ -54,8 +56,8 @@ class SettingsPageOptions
 
         $options = get_option('_owc_openpub_press_settings', []);
 
-        // include openpub-base settings.
-        if (is_array(get_option('_owc_openpub_base_settings'))) {
+        if (CheckPluginActive::isPluginOpenPubBaseActive()) {
+            // include openpub-base settings.
             $options = array_merge($options, get_option('_owc_openpub_base_settings', []));
         };
 

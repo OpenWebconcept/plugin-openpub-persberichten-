@@ -12,8 +12,8 @@ return [
          */
         'persbericht'   => [
             'fields' => [
-                'connected'    => OWC\OpenPub\Persberichten\RestAPI\ItemFields\ConnectedField::class,
-                'mailinglists' => OWC\OpenPub\Persberichten\RestAPI\ItemFields\TypeField::class,
+                'connected'    => OWC\Persberichten\RestAPI\ItemFields\ConnectedField::class,
+                'mailinglists' => OWC\Persberichten\RestAPI\ItemFields\TypeField::class,
             ],
         ]
     ],

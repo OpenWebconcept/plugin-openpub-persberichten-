@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Foundation;
+namespace OWC\Persberichten\Foundation;
 
 /**
  * BasePlugin which sets all the serviceproviders.

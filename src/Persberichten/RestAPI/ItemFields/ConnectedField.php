@@ -1,11 +1,11 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\RestAPI\ItemFields;
+namespace OWC\Persberichten\RestAPI\ItemFields;
 
-use OWC\OpenPub\Persberichten\Support\CreatesFields;
-use OWC\OpenPub\Persberichten\Models\Persbericht as PersberichtModel;
-use OWC\OpenPub\Persberichten\Repositories\Persbericht;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Support\CreatesFields;
+use OWC\Persberichten\Models\Persbericht as PersberichtModel;
+use OWC\Persberichten\Repositories\Persbericht;
+use OWC\Persberichten\Foundation\Plugin;
 use WP_Post;
 use WP_Query;
 

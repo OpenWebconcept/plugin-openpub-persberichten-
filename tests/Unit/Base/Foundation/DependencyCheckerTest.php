@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Base\Foundation;
+namespace OWC\Persberichten\Tests\Base\Foundation;
 
-use OWC\OpenPub\Persberichten\Foundation\DependencyChecker;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Foundation\DependencyChecker;
+use OWC\Persberichten\Tests\TestCase;
 use WP_Mock;
 
 class DependencyCheckerTest extends TestCase

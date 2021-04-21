@@ -2,8 +2,8 @@
 
 namespace OWC\PDC\Tests\Base\Settings;
 
-use OWC\OpenPub\Persberichten\Settings\SettingsPageOptions;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Settings\SettingsPageOptions;
+use OWC\Persberichten\Tests\TestCase;
 
 class SettingsPageOptionsTest extends TestCase
 {

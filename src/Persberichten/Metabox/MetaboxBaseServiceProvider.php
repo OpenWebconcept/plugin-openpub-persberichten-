@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Metabox;
+namespace OWC\Persberichten\Metabox;
 
-use OWC\OpenPub\Persberichten\Foundation\ServiceProvider;
+use OWC\Persberichten\Foundation\ServiceProvider;
 
 abstract class MetaboxBaseServiceProvider extends ServiceProvider
 {

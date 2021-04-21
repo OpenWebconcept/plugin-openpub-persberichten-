@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Exceptions;
+namespace OWC\Persberichten\Exceptions;
 
 use Exception;
 

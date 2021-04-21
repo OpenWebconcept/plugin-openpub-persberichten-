@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Taxonomy;
+namespace OWC\Persberichten\Taxonomy;
 
 class TaxonomyController
 {

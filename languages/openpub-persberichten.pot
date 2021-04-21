@@ -7,18 +7,26 @@ msgid "Save"
 msgstr ""
 
 #: config/settings.php:12
-msgid "Portal press release item slug"
+msgid "Portal URL"
 msgstr ""
 
 #: config/settings.php:13
-msgid "URL for press release items in the portal, eg \"persberichten\""
-msgstr ""
+msgid "URL including http(s)://"
+msgstr "" 
 
 #: config/settings.php:18
-msgid "Additional message"
+msgid "Portal press release item slug"
 msgstr ""
 
 #: config/settings.php:19
+msgid "URL for press release items in the portal, eg \"persberichten\""
+msgstr ""
+
+#: config/settings.php:24
+msgid "Additional message"
+msgstr ""
+
+#: config/settings.php:25
 msgid "Additional message that will be added to each press release."
 msgstr ""
 

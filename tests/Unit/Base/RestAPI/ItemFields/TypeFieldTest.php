@@ -1,14 +1,14 @@
 <?php
 
-namespace OWC\OpenPub\Persberichten\Tests\Base\RestAPI\ItemFields;
+namespace OWC\Persberichten\Tests\Base\RestAPI\ItemFields;
 
 use Mockery as m;
-use OWC\OpenPub\Persberichten\Foundation\Config;
-use OWC\OpenPub\Persberichten\Foundation\Loader;
-use OWC\OpenPub\Persberichten\Models\Persbericht;
-use OWC\OpenPub\Persberichten\Foundation\Plugin;
-use OWC\OpenPub\Persberichten\RestAPI\ItemFields\TypeField;
-use OWC\OpenPub\Persberichten\Tests\TestCase;
+use OWC\Persberichten\Foundation\Config;
+use OWC\Persberichten\Foundation\Loader;
+use OWC\Persberichten\Models\Persbericht;
+use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\RestAPI\ItemFields\TypeField;
+use OWC\Persberichten\Tests\TestCase;
 use WP_Mock;
 use WP_Post;
 
