@@ -20,6 +20,8 @@ if (!defined('WPINC')) {
     die;
 }
 
+define('PRESS_DIR', __DIR__);
+
 /**
  * manual loaded file: the autoloader.
  */
