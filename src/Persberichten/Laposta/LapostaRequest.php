@@ -20,7 +20,7 @@ class LapostaRequest
 
         $body = json_decode($result['body'], true);
 
-        if (!$body) {
+        if (!$body || isset($body['error'])) {
             return ['error'];
         }
 

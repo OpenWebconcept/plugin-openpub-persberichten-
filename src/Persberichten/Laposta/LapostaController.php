@@ -37,42 +37,34 @@ class LapostaController
             return;
         }
 
-        /**
-         * Parameter $creating is not reliable because of revisions.
-         * Update the meta so we know the post is created, for future references.
-         */
-        update_post_meta($post->ID, '_owc_press_release_is_created', '1');
+        $pressRelease = Persbericht::makeFrom($post);
+        $mailingLists = $pressRelease->getTerms('openpub_press_mailing_list');
 
-        $this->handleLaposta($post);
+        if (!is_array($mailingLists) || empty($mailingLists)) {
+            $this->returnJsonError('412', 'No mailing list terms connected.');
+        }
+
+        $this->handleLaposta($pressRelease, $mailingLists);
     }
 
     /**
      * Fires after the first publication of a press release.
      * Send post content to a laposta campaign.
      *
-     * @param WP_Post $post
+     * @param Persbericht $pressRelease
      * 
      * @return void
      */
-    protected function handleLaposta(WP_Post $post): void
+    protected function handleLaposta(Persbericht $pressRelease, array $mailingLists): void
     {
-        $pressRelease = Persbericht::makeFrom($post);
-        $mailingLists = $pressRelease->getTerms('openpub_press_mailing_list');
-
-        if (!is_array($mailingLists) || empty($mailingLists)) {
-            return;
-        }
-
         $mailinglistIDs = $this->getTermsMeta($mailingLists, 'openpub_press_mailing_list_id');
 
         foreach ($mailinglistIDs as $mailingListID) {
-            $endpoint = sprintf('/v2/campaign/%s/content', $mailingListID);
-
-            if (!$this->campaignExists($endpoint)) {
+            if (!$this->campaignExists($mailingListID)) {
                 continue;
             }
 
-            $this->pushToCampaign($endpoint, $pressRelease, $mailingListID);
+            $this->populateCampaign($pressRelease, $mailingListID);
         }
     }
 
@@ -104,13 +96,14 @@ class LapostaController
     /**
      * Validate if the laposta campaign exists.
      *
-     * @param string $endpoint
+     * @param string $mailingListID
      * 
      * @return boolean
      */
-    protected function campaignExists(string $endpoint): bool
+    protected function campaignExists(string $mailingListID): bool
     {
-        $result = $this->request->request($endpoint);
+        $endpoint = sprintf('/v2/campaign/%s', $mailingListID);
+        $result   = $this->request->request($endpoint);
 
         if (isset($result['error']) || empty($result['campaign'])) {
             return false;
@@ -120,22 +113,54 @@ class LapostaController
     }
 
     /**
-     * Push to laposta campaign.
+     * Populate Laposta campaign.
      *
-     * @param string $endpoint
      * @param Persbericht $pressRelease
      * @param string $mailingListID
      * 
      * @return void
      */
-    protected function pushToCampaign(string $endpoint, Persbericht $pressRelease, string $mailingListID): void
+    protected function populateCampaign(Persbericht $pressRelease, string $mailingListID): void
     {
         $requestBody = $this->makeRequestBody($pressRelease, $mailingListID);
-        $result      = $this->request->request($endpoint, 'POST', $requestBody);
+
+        if (empty($requestBody)) {
+            $this->returnJsonError('412', 'Something went wrong with creating the request body.');
+        }
+
+        $endpoint = sprintf('/v2/campaign/%s/content', $mailingListID);
+        $result   = $this->request->request($endpoint, 'POST', $requestBody);
 
         if (isset($result['error']) || empty($result['campaign'])) {
+            $this->returnJsonError('501', 'Something went wrong with filling the content of the campaign.');
+        }
+
+        $this->sendCampaign($pressRelease, $mailingListID);
+    }
+
+    /**
+     * Send the campaign to the subscribers.
+     *
+     * @param Persbericht $pressRelease
+     * @param string $mailingListID
+     * 
+     * @return void
+     */
+    protected function sendCampaign(Persbericht $pressRelease, string $mailingListID): void
+    {
+        $endpoint = sprintf('/v2/campaign/%s/action/send', $mailingListID);
+        $result   = $this->request->request($endpoint, 'POST');
+
+        if (isset($result['error']) || empty($result['campaign'])) {
+            $this->returnJsonError('501', 'Something went wrong with sending the campaign to the subscribers.');
             return;
         }
+
+        /**
+         * Parameter $creating is not reliable because of revisions.
+         * Update the meta so we know the post is created, for future references.
+         */
+        update_post_meta($pressRelease->getID(), '_owc_press_release_is_created', '1');
     }
 
     /**
@@ -174,5 +199,17 @@ class LapostaController
         }
 
         return sprintf('%s/%s/%s/laposta', $this->plugin->settings->getPortalURL(), $this->plugin->settings->getPortalItemSlug(), $slug);
+    }
+
+    /**
+     * @param string $code
+     * @param string $message
+     * 
+     * @return void
+     */
+    protected function returnJsonError(string $code, string $message): void
+    {
+        $error = new \WP_Error($code, $message, ['status' => (int)$code]);
+        wp_send_json_error($error, (int) $code);
     }
 }
