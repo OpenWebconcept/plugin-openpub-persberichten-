@@ -15,13 +15,13 @@ class LapostaRequest
         $result = wp_remote_request($this->makeURL($endpoint), $this->makeRequestArgs($method, $body));
 
         if (is_wp_error($result)) {
-            return ['error'];
+            return ['error' => true];
         }
 
         $body = json_decode($result['body'], true);
 
-        if (!$body || isset($body['error'])) {
-            return ['error'];
+        if (!$body) {
+            return ['error' => true];
         }
 
         return $body;

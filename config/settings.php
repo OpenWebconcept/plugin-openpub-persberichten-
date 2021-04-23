@@ -8,7 +8,7 @@ return [
         'tab'            => 'pressreleases',
         'fields'         => [
             'settings' => [
-                'portal_url'        => [
+                'settings_press_release_portal_url' => [
                     'name' => __('Portal URL', 'openpub-persberichten'),
                     'desc' => __('URL including http(s)://', 'openpub-persberichten'),
                     'id'   => 'setting_portal_url',
@@ -18,6 +18,18 @@ return [
                     'name' => __('Portal press release item slug', 'openpub-persberichten'),
                     'desc' => __('URL for press release items in the portal, eg "persberichten"', 'openpub-persberichten'),
                     'id'   => 'setting_portal_press_release_item_slug',
+                    'type' => 'text',
+                ],
+                'settings_press_release_organisation_account' => [
+                    'name' => __('Organisation', 'openpub-persberichten'),
+                    'desc' => __('The name of the Laposta account holder.', 'openpub-persberichten'),
+                    'id'   => 'setting_press_release_organisation_account',
+                    'type' => 'text',
+                ],
+                'settings_press_release_account_email' => [
+                    'name' => __('E-mail address', 'openpub-persberichten'),
+                    'desc' => __('E-mail address of the laposta account holder.', 'openpub-persberichten'),
+                    'id'   => 'setting_press_release_account_email',
                     'type' => 'text',
                 ],
                 'settings_additional_message'  => [

@@ -28,12 +28,19 @@ class SettingsPageOptions
         return $this->settings['_owc_setting_portal_url'] ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function getPortalItemSlug(): string
     {
         return $this->settings['_owc_setting_portal_press_release_item_slug'] ?? '';
+    }
+
+    public function getOrganisationName(): string
+    {
+        return $this->settings['_owc_setting_press_release_organisation_account'] ?? '';
+    }
+
+    public function getOrganisationEmail(): string
+    {
+        return $this->settings['_owc_setting_press_release_account_email'] ?? '';
     }
 
     /**

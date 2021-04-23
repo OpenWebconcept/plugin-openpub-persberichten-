@@ -30,7 +30,7 @@ class Persbericht extends AbstractRepository
             'image'             => $persbericht->getThumbnail(),
             'content'           => $persbericht->getContent(),
             'additional_info'   => $this->getAdditionalMessage(),
-            'excerpt'           => $persbericht->getExcerpt(),
+            'excerpt'           => $persbericht->getExcerpt(65),
             'slug'              => $persbericht->getPostName(),
             'type'              => $persbericht->getPostType()
         ];
