@@ -23,10 +23,26 @@ msgid "URL for press release items in the portal, eg \"persberichten\""
 msgstr "URL voor persberichten in de portal, bv \"persberichten\""
 
 #: config/settings.php:24
+msgid "Organisation"
+msgstr "Organisatie"
+
+#: config/settings.php:25
+msgid "The name of the Laposta account holder."
+msgstr "De naam van de organisatie achter het Laposta account."
+
+#: config/settings.php:30
+msgid "E-mail address"
+msgstr "E-mailadres"
+
+#: config/settings.php:31
+msgid "E-mail address of the laposta account holder." 
+msgstr "E-mailadres van het Laposta account."
+
+#: config/settings.php:36
 msgid "Additional message"
 msgstr "Aanvullend informatie"
 
-#: config/settings.php:25
+#: config/settings.php:37
 msgid "Additional message that will be added to each press release."
 msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
 

@@ -58,14 +58,13 @@ class LapostaController
     protected function handleLaposta(Persbericht $pressRelease, array $mailingLists): void
     {
         $mailinglistIDs = $this->getTermsMeta($mailingLists, 'openpub_press_mailing_list_id');
+        $campaignID     = $this->createCampaign($pressRelease, $mailinglistIDs);
 
-        foreach ($mailinglistIDs as $mailingListID) {
-            if (!$this->campaignExists($mailingListID)) {
-                continue;
-            }
-
-            $this->populateCampaign($pressRelease, $mailingListID);
+        if (!$this->campaignExists($campaignID)) {
+            $this->returnJsonError('412', 'Newly created campaign does not exists.');
         }
+
+        $this->populateCampaign($pressRelease, $campaignID);
     }
 
     /**
@@ -96,13 +95,13 @@ class LapostaController
     /**
      * Validate if the laposta campaign exists.
      *
-     * @param string $mailingListID
+     * @param string $campaignID
      * 
      * @return boolean
      */
-    protected function campaignExists(string $mailingListID): bool
+    protected function campaignExists(string $campaignID): bool
     {
-        $endpoint = sprintf('/v2/campaign/%s', $mailingListID);
+        $endpoint = sprintf('/v2/campaign/%s', $campaignID);
         $result   = $this->request->request($endpoint);
 
         if (isset($result['error']) || empty($result['campaign'])) {
@@ -112,48 +111,65 @@ class LapostaController
         return true;
     }
 
-    /**
-     * Populate Laposta campaign.
-     *
-     * @param Persbericht $pressRelease
-     * @param string $mailingListID
-     * 
-     * @return void
-     */
-    protected function populateCampaign(Persbericht $pressRelease, string $mailingListID): void
+    protected function createCampaign(Persbericht $pressRelease, array $mailingListIDs): string
     {
-        $requestBody = $this->makeRequestBody($pressRelease, $mailingListID);
+        $requestBody = $this->makeCampaignBody($pressRelease, $mailingListIDs);
 
         if (empty($requestBody)) {
             $this->returnJsonError('412', 'Something went wrong with creating the request body.');
         }
 
-        $endpoint = sprintf('/v2/campaign/%s/content', $mailingListID);
+        $endpoint = '/v2/campaign';
         $result   = $this->request->request($endpoint, 'POST', $requestBody);
+
+        if (isset($result['error']) || empty($result['campaign'])) {
+            $this->returnJsonError('501', 'Something went wrong with creating the campaign.');
+        }
+
+        return $result['campaign']['campaign_id'] ?? '';
+    }
+
+    /**
+     * Populate Laposta campaign.
+     *
+     * @param Persbericht $pressRelease
+     * @param string $campaignID
+     * 
+     * @return void
+     */
+    protected function populateCampaign(Persbericht $pressRelease, string $campaignID): void
+    {
+        $campaignBody = $this->makeCampaignContentBody($pressRelease, $campaignID);
+
+        if (empty($campaignBody)) {
+            $this->returnJsonError('412', 'Something went wrong with creating the request body for populating a campaign.');
+        }
+
+        $endpoint = sprintf('/v2/campaign/%s/content', $campaignID);
+        $result   = $this->request->request($endpoint, 'POST', $campaignBody);
 
         if (isset($result['error']) || empty($result['campaign'])) {
             $this->returnJsonError('501', 'Something went wrong with filling the content of the campaign.');
         }
 
-        $this->sendCampaign($pressRelease, $mailingListID);
+        $this->sendCampaign($pressRelease, $campaignID);
     }
 
     /**
      * Send the campaign to the subscribers.
      *
      * @param Persbericht $pressRelease
-     * @param string $mailingListID
+     * @param string $campaignID
      * 
      * @return void
      */
-    protected function sendCampaign(Persbericht $pressRelease, string $mailingListID): void
+    protected function sendCampaign(Persbericht $pressRelease, string $campaignID): void
     {
-        $endpoint = sprintf('/v2/campaign/%s/action/send', $mailingListID);
+        $endpoint = sprintf('/v2/campaign/%s/action/send', $campaignID);
         $result   = $this->request->request($endpoint, 'POST');
 
         if (isset($result['error']) || empty($result['campaign'])) {
             $this->returnJsonError('501', 'Something went wrong with sending the campaign to the subscribers.');
-            return;
         }
 
         /**
@@ -164,14 +180,36 @@ class LapostaController
     }
 
     /**
-     * Laposta uses the importURL to retrieve the html of an external source.
+     * Body used for creating a campaign.
      *
      * @param Persbericht $pressRelease
-     * @param string $mailingListID
+     * @param array $mailingListID
      * 
      * @return array
      */
-    protected function makeRequestBody(Persbericht $pressRelease, string $mailingListID): array
+    protected function makeCampaignBody(Persbericht $pressRelease, array $mailingListID): array
+    {
+        return [
+            'type'    => 'regular',
+            'name'    => $pressRelease->getTitle(),
+            'subject' => $pressRelease->getTitle(),
+            'from' => [
+                'name' => $this->getOrganisationName(),
+                'email' => $this->getOrganisationEmail()
+            ],
+            'list_ids' => $mailingListID,
+        ];
+    }
+
+    /**
+     * Fill the campaign after it has been created.
+     *
+     * @param Persbericht $pressRelease
+     * @param string $campaignID
+     * 
+     * @return array
+     */
+    protected function makeCampaignContentBody(Persbericht $pressRelease, string $campaignID): array
     {
         $importURL = $this->makeImportURL($pressRelease->getPostName());
 
@@ -180,9 +218,19 @@ class LapostaController
         }
 
         return [
-            'campaign_id'   => $mailingListID,
+            'campaign_id'   => $campaignID,
             'import_url'    => $importURL
         ];
+    }
+
+    protected function getOrganisationName()
+    {
+        return $this->plugin->settings->getOrganisationName();
+    }
+
+    protected function getOrganisationEmail()
+    {
+        return $this->plugin->settings->getOrganisationEmail();
     }
 
     /**
