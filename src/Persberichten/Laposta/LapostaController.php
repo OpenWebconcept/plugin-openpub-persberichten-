@@ -234,7 +234,8 @@ class LapostaController
 
         return [
             'campaign_id'   => $campaignID,
-            'import_url'    => $importURL
+            'import_url'    => $importURL,
+            'inline_css'    => true
         ];
     }
 
