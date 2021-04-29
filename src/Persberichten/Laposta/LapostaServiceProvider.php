@@ -8,6 +8,6 @@ class LapostaServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->plugin->loader->addAction('rest_after_insert_openpub-press-item', new LapostaController($this->plugin), 'handleSave', 10, 3);
+        $this->plugin->loader->addAction('rest_after_insert_press-item', new LapostaController($this->plugin, new LapostaRequest($this->plugin->settings)), 'handleSave', 10, 3);
     }
 }

@@ -7,7 +7,7 @@ use OWC\Persberichten\Models\Persbericht as PersberichtModel;
 
 class Persbericht extends AbstractRepository
 {
-    protected $posttype = 'openpub-press-item';
+    protected $posttype = 'press-item';
 
     protected static $globalFields = [];
 
@@ -86,7 +86,7 @@ class Persbericht extends AbstractRepository
         return [
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub_press_mailing_list',
+                    'taxonomy' => 'press_mailing_list',
                     'terms'    => $type,
                     'field'    => 'slug'
                 ]

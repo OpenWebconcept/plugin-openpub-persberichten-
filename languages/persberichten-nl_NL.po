@@ -1,163 +1,179 @@
-#: config/settings_pages.php:7 config/settings_pages.php:19 config/settings_pages.php:13 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
+#: config/settings_pages.php:7 config/settings_pages.php:11 config/settings_pages.php:15 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
 msgid "Press releases"
-msgstr ""
+msgstr "Persberichten"
 
-#: config/settings_pages.php:11
+#: config/settings_pages.php:13
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: config/settings.php:12
 msgid "Portal URL"
-msgstr ""
+msgstr "Portal URL"
 
 #: config/settings.php:13
 msgid "URL including http(s)://"
-msgstr "" 
+msgstr "URL inclusief http(s)://" 
 
 #: config/settings.php:18
 msgid "Portal press release item slug"
-msgstr ""
+msgstr "Portal persbericht item slug"
 
 #: config/settings.php:19
 msgid "URL for press release items in the portal, eg \"persberichten\""
-msgstr ""
+msgstr "URL voor persberichten in de portal, bv \"persberichten\""
 
 #: config/settings.php:24
 msgid "Organisation"
-msgstr ""
+msgstr "Organisatie"
 
 #: config/settings.php:25
-msgid "The name of the organisation."
-msgstr ""
+msgid "The name of the Laposta account holder."
+msgstr "De naam van de organisatie achter het Laposta account."
 
 #: config/settings.php:30
 msgid "E-mail address"
-msgstr ""
+msgstr "E-mailadres"
 
 #: config/settings.php:31
-msgid "E-mail address of the laposta account holder."
-msgstr ""
+msgid "E-mail address of the laposta account holder." 
+msgstr "E-mailadres van het Laposta account."
 
 #: config/settings.php:36
-msgid "Additional message"
-msgstr ""
+msgid "Laposta API-key"
+msgstr "Laposta API-sleutel"
 
 #: config/settings.php:37
+msgid "Authentication for the Laposta API."
+msgstr "Authenticatie voor de API van Laposta."
+
+#: config/settings.php:42
+msgid "Laposta API-url"
+msgstr "Laposta API-url"
+
+#: config/settings.php:43
+msgid "Used for the connection between the Laposta API."
+msgstr "Wordt gebruikt voor de connectie met de API van Laposta"
+
+#: config/settings.php:48
+msgid "Additional message"
+msgstr "Aanvullend informatie"
+
+#: config/settings.php:49
 msgid "Additional message that will be added to each press release."
-msgstr ""
+msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
 
 #: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25 config/posttypes.php:25 config/posttypes.php:58
 msgid "Mailing list"
-msgstr ""
+msgstr "Verzendlijst"
 
 #: config/taxonomies.php:12
 msgid "Search mailing lists"
-msgstr ""
+msgstr "Zoek verzendlijst"
 
 #: config/taxonomies.php:13
 msgid "All mailing lists"
-msgstr ""
+msgstr "Alle verzendlijsten"
 
 #: config/taxonomies.php:14 config/taxonomies.php:15
 msgid "Parent mailing list"
-msgstr ""
+msgstr "Hoofd verzendlijst"
 
 #: config/taxonomies.php:16
 msgid "Edit mailing list"
-msgstr ""
+msgstr "Wijzig verzendlijst"
 
 #: config/taxonomies.php:16
 msgid "Update mailing list"
-msgstr ""
+msgstr "Verzendlijst bijwerken"
 
 #: config/taxonomies.php:18
 msgid "Add new mailing list"
-msgstr ""
+msgstr "Voeg verzendlijst toe"
 
 #: config/taxonomies.php:18
 msgid "New mailing list"
-msgstr ""
+msgstr "Nieuwe verzendlijst"
 
-#: config/taxonomies.php:26
+#: config/taxonomies.php:20 config/taxonomies.php:26
 msgid "Mailing lists"
-msgstr ""
+msgstr "Verzendlijsten"
 
 #: config/posttypes.php:29 config/posttypes.php:37
 msgid "Expired"
-msgstr ""
+msgstr "Verlopen"
 
 #: config/posttypes.php:41
 msgid "No expire date"
-msgstr ""
+msgstr "Geen verloopdatum"
 
 #: config/posttypes.php:43
 msgid "Will expire on"
-msgstr ""
+msgstr "Is verlopen op"
 
 #: config/posttypes.php:49
 msgid "Published"
-msgstr ""
+msgstr "Gepubliceerd"
 
 #: config/posttypes.php:63 config/posttypes.php:81
 msgid "Press release"
-msgstr ""
+msgstr "Persbericht"
 
 #: config/posttypes.php:65 config/posttypes.php:68
 msgid "New press release"
-msgstr ""
+msgstr "Nieuw persbericht"
 
 #: config/posttypes.php:66
 msgid "Add new press release"
-msgstr ""
+msgstr "Voeg nieuw persbericht toe"
 
 #: config/posttypes.php:67
 msgid "Add press release"
-msgstr ""
+msgstr "Voeg persbericht toe"
 
 #: config/posttypes.php:69
 msgid "Edit press release"
-msgstr ""
+msgstr "Wijzig persbericht"
 
 #: config/posttypes.php:70
 msgid "View press release"
-msgstr ""
+msgstr "Bekijk persbericht"
 
 #: config/posttypes.php:71
 msgid "All press releases"
-msgstr ""
+msgstr "Alle persberichten"
 
 #: config/posttypes.php:72
 msgid "Search press release"
-msgstr ""
+msgstr "Zoek persbericht"
 
 #: config/posttypes.php:73
 msgid "Parent press release:"
-msgstr ""
+msgstr "Hoofd persberichten:"
 
 #: config/posttypes.php:74
 msgid "No press releases found."
-msgstr ""
+msgstr "Geen persberichten gevonden."
 
 #: config/posttypes.php:75
 msgid "No press releases found in trash."
-msgstr ""
+msgstr "Geen persberichten gevonden in de prullenbak."
 
 #: src/Persberichten/Foundation/DependencyChecker.php:108
 msgid "Class does not exist"
-msgstr ""
+msgstr "Klasse bestaat niet"
 
 #: src/Persberichten/Foundation/DependencyChecker.php:128
 msgid "Inactive"
-msgstr ""
+msgstr "Inactief"
 
 #: src/Persberichten/Foundation/DependencyChecker.php:136
 msgid "Minimal version:"
-msgstr ""
+msgstr "Minimale versie:"
 
 #: src/Persberichten/Taxonomy/TaxonomyController.php:14 src/Persberichten/Taxonomy/TaxonomyController.php:30 src/Persberichten/Taxonomy/TaxonomyController.php:41
 msgid "Mailinglist ID"
-msgstr ""
+msgstr "Verzendlijst ID"
 
 #: src/Persberichten/Taxonomy/TaxonomyController.php:16 src/Persberichten/Taxonomy/TaxonomyController.php:34
 msgid "The id of the mailinglist in Laposta."
-msgstr ""
+msgstr "ID van de verzendlijst in Laposta."

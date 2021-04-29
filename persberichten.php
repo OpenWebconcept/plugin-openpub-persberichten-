@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:       Yard | OpenPub Persberichten
+ * Plugin Name:       Yard | Persberichten
  * Plugin URI:        https://www.openwebconcept.nl/
  * Description:       Press releases are a variation on OpenPub items. A press release can be added to a laposta campaign based on the connected taxonomy. This only happens when the press release is saved for the first time.
  * Version:           0.0.1
@@ -9,7 +9,7 @@
  * Author URI:        https://www.yard.nl/
  * License:           GPL-3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:       openpub-persberichten
+ * Text Domain:       persberichten
  * Domain Path:       /languages
  */
 
@@ -23,7 +23,7 @@ if (!defined('WPINC')) {
 define('PRESS_DIR', __DIR__);
 
 /**
- * manual loaded file: the autoloader.
+ * Manual loaded file: the autoloader.
  */
 require_once __DIR__ . '/autoloader.php';
 $autoloader = new OWC\Persberichten\Autoloader();

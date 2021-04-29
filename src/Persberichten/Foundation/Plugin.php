@@ -12,7 +12,7 @@ class Plugin
      *
      * @var string
      */
-    const NAME = 'openpub-persberichten';
+    const NAME = 'persberichten';
 
     /**
      * Version of the plugin.

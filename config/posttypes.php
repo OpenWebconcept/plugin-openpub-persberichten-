@@ -1,12 +1,10 @@
 <?php
 
-use OWC\OpenPub\Base\Repositories\Item;
-
 return [
     /**
      * Examples of registering post types: https://johnbillion.com/extended-cpts/
      */
-    'openpub-press-item' => [
+    'press-item' => [
         'args' => [
             // Add the post type to the site's main RSS feed:
             'show_in_feed' => false,
@@ -22,11 +20,11 @@ return [
             'show_in_rest' => true,
             'admin_cols'   => [
                 'type' => [
-                    'title'    => __('Mailing list', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub_press_mailing_list',
+                    'title'    => __('Mailing list', 'persberichten'),
+                    'taxonomy' => 'press_mailing_list',
                 ],
                 'published' => [
-                    'title'       => __('Published', 'openpub-persberichten'),
+                    'title'       => __('Published', 'persberichten'),
                     'post_field'  => 'post_date',
                     'date_format' => get_option('date_format') . ', ' . get_option('time_format'),
                 ],
@@ -35,32 +33,32 @@ return [
             // Add a dropdown filter to the admin screen:
             'admin_filters' => [
                 'type' => [
-                    'title'    => __('Mailing list', 'openpub-persberichten'),
-                    'taxonomy' => 'openpub_press_mailing_list',
+                    'title'    => __('Mailing list', 'persberichten'),
+                    'taxonomy' => 'press_mailing_list',
                 ],
             ],
             'labels' => [
-                'singular_name'      => __('Press release', 'openpub-persberichten'),
-                'menu_name'          => __('Press releases', 'openpub-persberichten'),
-                'name_admin_bar'     => __('New press release', 'openpub-persberichten'),
-                'add_new'            => __('Add new press release', 'openpub-persberichten'),
-                'add_new_item'       => __('Add press release', 'openpub-persberichten'),
-                'new_item'           => __('New press release', 'openpub-persberichten'),
-                'edit_item'          => __('Edit press release', 'openpub-persberichten'),
-                'view_item'          => __('View press release', 'openpub-persberichten'),
-                'all_items'          => __('All press releases', 'openpub-persberichten'),
-                'search_items'       => __('Search press release', 'openpub-persberichten'),
-                'parent_item_colon'  => __('Parent press release:', 'openpub-persberichten'),
-                'not_found'          => __('No press releases found.', 'openpub-persberichten'),
-                'not_found_in_trash' => __('No press releases found in trash.', 'openpub-persberichten'),
+                'singular_name'      => __('Press release', 'persberichten'),
+                'menu_name'          => __('Press releases', 'persberichten'),
+                'name_admin_bar'     => __('New press release', 'persberichten'),
+                'add_new'            => __('Add new press release', 'persberichten'),
+                'add_new_item'       => __('Add press release', 'persberichten'),
+                'new_item'           => __('New press release', 'persberichten'),
+                'edit_item'          => __('Edit press release', 'persberichten'),
+                'view_item'          => __('View press release', 'persberichten'),
+                'all_items'          => __('All press releases', 'persberichten'),
+                'search_items'       => __('Search press release', 'persberichten'),
+                'parent_item_colon'  => __('Parent press release:', 'persberichten'),
+                'not_found'          => __('No press releases found.', 'persberichten'),
+                'not_found_in_trash' => __('No press releases found in trash.', 'persberichten'),
             ],
         ],
         // Override the base names used for labels:
         'names' => [
             'slug'     => 'persberichten',
-            'singular' => __('Press release', 'openpub-persberichten'),
-            'plural'   => __('Press releases', 'openpub-persberichten'),
-            'name'     => __('Press releases', 'openpub-persberichten'),
+            'singular' => __('Press release', 'persberichten'),
+            'plural'   => __('Press releases', 'persberichten'),
+            'name'     => __('Press releases', 'persberichten'),
         ],
     ],
 ];

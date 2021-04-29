@@ -79,8 +79,8 @@ class SettingsServiceProviderTest extends TestCase
 
         $configSettingsPage = [
             'base' => [
-                'id'          => '_owc_openpub_press_settings',
-                'option_name' => '_owc_openpub_press_settings'
+                'id'          => '_owc_press_settings',
+                'option_name' => '_owc_press_settings'
             ]
         ];
 
@@ -101,8 +101,8 @@ class SettingsServiceProviderTest extends TestCase
                 'option_name' => 'existing_settings_page'
             ],
             'base' => [
-                'id'          => '_owc_openpub_press_settings',
-                'option_name' => '_owc_openpub_press_settings'
+                'id'          => '_owc_press_settings',
+                'option_name' => '_owc_press_settings'
             ]
         ];
 

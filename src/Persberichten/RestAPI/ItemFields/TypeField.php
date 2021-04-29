@@ -18,7 +18,7 @@ class TypeField extends CreatesFields
     public function create(WP_Post $post): array
     {
         $itemModel = Persbericht::makeFrom($post);
-        $terms     = $itemModel->getTerms('openpub_press_mailing_list');
+        $terms     = $itemModel->getTerms('press_mailing_list');
 
         if (!is_array($terms)) {
             return [];

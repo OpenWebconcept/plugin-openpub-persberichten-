@@ -2,6 +2,7 @@
 
 namespace OWC\Persberichten\Laposta;
 
+use OWC\Persberichten\Exceptions\LapostaRequestException;
 use OWC\Persberichten\Models\Persbericht;
 use OWC\Persberichten\Foundation\Plugin;
 use \WP_Post;
@@ -15,10 +16,17 @@ class LapostaController
      */
     protected $plugin;
 
-    public function __construct(Plugin $plugin)
+    /**
+     * Instance of the plugin.
+     *
+     * @var LapostaRequest
+     */
+    protected $request;
+
+    public function __construct(Plugin $plugin, LapostaRequest $request)
     {
         $this->plugin   = $plugin;
-        $this->request  = new LapostaRequest();
+        $this->request  = $request;
     }
 
     public function handleSave(WP_Post $post, \WP_REST_Request $request, bool $creating): void
@@ -27,21 +35,21 @@ class LapostaController
             return;
         }
 
-        if (in_array($post->post_status, ['draft', 'pending', 'auto-draft'])) {
+        if (!in_array($post->post_status, ['publish'])) {
             return;
         }
 
         $alreadyCreated = get_post_meta($post->ID, '_owc_press_release_is_created', true);
 
-        if ($post->post_type !== 'openpub-press-item' || $alreadyCreated === '1') {
+        if ($post->post_type !== 'press-item' || $alreadyCreated === '1') {
             return;
         }
 
         $pressRelease = Persbericht::makeFrom($post);
-        $mailingLists = $pressRelease->getTerms('openpub_press_mailing_list');
+        $mailingLists = $pressRelease->getTerms('press_mailing_list');
 
-        if (!is_array($mailingLists) || empty($mailingLists)) {
-            $this->returnJsonError('412', 'No mailing list terms connected.');
+        if (!is_array($mailingLists) || is_wp_error($mailingLists)) {
+            $mailingLists = [];
         }
 
         $this->handleLaposta($pressRelease, $mailingLists);
@@ -49,7 +57,7 @@ class LapostaController
 
     /**
      * Fires after the first publication of a press release.
-     * Send post content to a laposta campaign.
+     * Send post content to a Laposta campaign.
      *
      * @param Persbericht $pressRelease
      * 
@@ -57,11 +65,13 @@ class LapostaController
      */
     protected function handleLaposta(Persbericht $pressRelease, array $mailingLists): void
     {
-        $mailinglistIDs = $this->getTermsMeta($mailingLists, 'openpub_press_mailing_list_id');
+        $mailinglistIDs = $this->getTermsMeta($mailingLists, 'press_mailing_list_id');
         $campaignID     = $this->createCampaign($pressRelease, $mailinglistIDs);
 
-        if (!$this->campaignExists($campaignID)) {
-            $this->returnJsonError('412', 'Newly created campaign does not exists.');
+        try {
+            $this->campaignExists($campaignID);
+        } catch (LapostaRequestException $e) {
+            $this->returnJsonError($e);
         }
 
         $this->populateCampaign($pressRelease, $campaignID);
@@ -97,33 +107,41 @@ class LapostaController
      *
      * @param string $campaignID
      * 
+     * @throws LapostaRequestException
      * @return boolean
      */
-    protected function campaignExists(string $campaignID): bool
+    protected function campaignExists(string $campaignID = ''): bool
     {
-        $endpoint = sprintf('/v2/campaign/%s', $campaignID);
-        $result   = $this->request->request($endpoint);
+        if (empty($campaignID)) {
+            throw new LapostaRequestException('Campaign ID is empty');
+        }
 
-        if (isset($result['error']) || empty($result['campaign'])) {
-            return false;
+        $endpoint = sprintf('/v2/campaign/%s', $campaignID);
+
+        try {
+            $this->request->request($endpoint);
+        } catch (LapostaRequestException $e) {
+            throw new LapostaRequestException($e->getMessage());
         }
 
         return true;
     }
 
+    /**
+     * @param Persbericht $pressRelease
+     * @param array $mailingListIDs
+     * 
+     * @return string
+     */
     protected function createCampaign(Persbericht $pressRelease, array $mailingListIDs): string
     {
         $requestBody = $this->makeCampaignBody($pressRelease, $mailingListIDs);
+        $endpoint    = '/v2/campaign';
 
-        if (empty($requestBody)) {
-            $this->returnJsonError('412', 'Something went wrong with creating the request body.');
-        }
-
-        $endpoint = '/v2/campaign';
-        $result   = $this->request->request($endpoint, 'POST', $requestBody);
-
-        if (isset($result['error']) || empty($result['campaign'])) {
-            $this->returnJsonError('501', 'Something went wrong with creating the campaign.');
+        try {
+            $result = $this->request->request($endpoint, 'POST', $requestBody);
+        } catch (LapostaRequestException $e) {
+            $this->returnJsonError($e);
         }
 
         return $result['campaign']['campaign_id'] ?? '';
@@ -140,16 +158,12 @@ class LapostaController
     protected function populateCampaign(Persbericht $pressRelease, string $campaignID): void
     {
         $campaignBody = $this->makeCampaignContentBody($pressRelease, $campaignID);
+        $endpoint     = sprintf('/v2/campaign/%s/content', $campaignID);
 
-        if (empty($campaignBody)) {
-            $this->returnJsonError('412', 'Something went wrong with creating the request body for populating a campaign.');
-        }
-
-        $endpoint = sprintf('/v2/campaign/%s/content', $campaignID);
-        $result   = $this->request->request($endpoint, 'POST', $campaignBody);
-
-        if (isset($result['error']) || empty($result['campaign'])) {
-            $this->returnJsonError('501', 'Something went wrong with filling the content of the campaign.');
+        try {
+            $this->request->request($endpoint, 'POST', $campaignBody);
+        } catch (LapostaRequestException $e) {
+            $this->returnJsonError($e);
         }
 
         $this->sendCampaign($pressRelease, $campaignID);
@@ -166,10 +180,11 @@ class LapostaController
     protected function sendCampaign(Persbericht $pressRelease, string $campaignID): void
     {
         $endpoint = sprintf('/v2/campaign/%s/action/send', $campaignID);
-        $result   = $this->request->request($endpoint, 'POST');
 
-        if (isset($result['error']) || empty($result['campaign'])) {
-            $this->returnJsonError('501', 'Something went wrong with sending the campaign to the subscribers.');
+        try {
+            $this->request->request($endpoint, 'POST');
+        } catch (LapostaRequestException $e) {
+            $this->returnJsonError($e);
         }
 
         /**
@@ -183,11 +198,11 @@ class LapostaController
      * Body used for creating a campaign.
      *
      * @param Persbericht $pressRelease
-     * @param array $mailingListID
+     * @param array $mailingListIDs
      * 
      * @return array
      */
-    protected function makeCampaignBody(Persbericht $pressRelease, array $mailingListID): array
+    protected function makeCampaignBody(Persbericht $pressRelease, array $mailingListIDs): array
     {
         return [
             'type'    => 'regular',
@@ -197,7 +212,7 @@ class LapostaController
                 'name' => $this->getOrganisationName(),
                 'email' => $this->getOrganisationEmail()
             ],
-            'list_ids' => $mailingListID,
+            'list_ids' => $mailingListIDs,
         ];
     }
 
@@ -223,12 +238,12 @@ class LapostaController
         ];
     }
 
-    protected function getOrganisationName()
+    protected function getOrganisationName(): string
     {
         return $this->plugin->settings->getOrganisationName();
     }
 
-    protected function getOrganisationEmail()
+    protected function getOrganisationEmail(): string
     {
         return $this->plugin->settings->getOrganisationEmail();
     }
@@ -250,14 +265,13 @@ class LapostaController
     }
 
     /**
-     * @param string $code
-     * @param string $message
+     * @param \Exception $exception
      * 
      * @return void
      */
-    protected function returnJsonError(string $code, string $message): void
+    protected function returnJsonError(\Exception $exception): void
     {
-        $error = new \WP_Error($code, $message, ['status' => (int)$code]);
-        wp_send_json_error($error, (int) $code);
+        $error = new \WP_Error($exception->getCode(), $exception->getMessage(), ['status' => $exception->getCode()]);
+        wp_send_json_error($error, $exception->getCode());
     }
 }

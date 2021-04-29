@@ -25,5 +25,5 @@ return [
      * Type: class
      * - Required: name
      */
-    'dependencies' => []
+    'dependencies' => [] // settings pages metabox.
 ];
