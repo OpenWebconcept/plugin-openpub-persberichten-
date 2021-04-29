@@ -14,7 +14,7 @@ class Persbericht
      *
      * @var string $posttype
      */
-    protected $posttype = 'openpub-press-item';
+    protected $posttype = 'press-item';
 
     /**
      * Data of the Post.

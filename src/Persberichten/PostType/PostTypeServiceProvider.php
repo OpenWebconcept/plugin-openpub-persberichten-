@@ -32,7 +32,7 @@ class PostTypeServiceProvider extends ServiceProvider
             return;
         }
 
-        if (!$query->is_main_query() || 'openpub-press-item' != $query->get('post_type')) {
+        if (!$query->is_main_query() || 'press-item' != $query->get('post_type')) {
             return;
         }
 

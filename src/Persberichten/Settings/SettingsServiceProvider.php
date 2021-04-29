@@ -49,7 +49,7 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
 
         if (CheckPluginActive::isPluginOpenPubBaseActive()) {
             // unset setting because it is already defined in the openpub base plugin.
-            unset($configMetaboxes['pressreleases']['fields']['settings']['portal_url']);
+            unset($configMetaboxes['pressreleases']['fields']['settings']['settings_press_release_portal_url']);
         }
 
         foreach ($configMetaboxes as $metabox) {

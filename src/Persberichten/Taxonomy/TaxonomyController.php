@@ -13,14 +13,14 @@ class TaxonomyController
      */
     public function addMailingListField(string $taxonomy): void
     {
-        if ($taxonomy !== 'openpub_press_mailing_list') {
+        if ($taxonomy !== 'press_mailing_list') {
             return;
         }
 
         echo '<div class="form-field">
-            <label for="openpub_press_mailing_list_id">' . __('Mailinglist ID', 'openpub-persberichten') . '</label>
-            <input type="text" name="openpub_press_mailing_list_id" id="openpub_press_mailing_list_id" />
-            <p>' . __('The id of the mailinglist in Laposta.', 'openpub-persberichten') . '</p>
+            <label for="press_mailing_list_id">' . __('Mailinglist ID', 'persberichten') . '</label>
+            <input type="text" name="press_mailing_list_id" id="press_mailing_list_id" />
+            <p>' . __('The id of the mailinglist in Laposta.', 'persberichten') . '</p>
             </div>';
     }
 
@@ -34,19 +34,19 @@ class TaxonomyController
      */
     public function editMailingListField(object $term, string $taxonomy): void
     {
-        if ($taxonomy !== 'openpub_press_mailing_list') {
+        if ($taxonomy !== 'press_mailing_list') {
             return;
         }
 
-        $mailinglistID = get_term_meta($term->term_id, 'openpub_press_mailing_list_id', true);
+        $mailinglistID = get_term_meta($term->term_id, 'press_mailing_list_id', true);
 
         echo '<tr class="form-field">
             <td>
-                <label for="openpub_press_mailing_list_id">' . __('Mailinglist ID', 'openpub-persberichten') . '</label>
+                <label for="press_mailing_list_id">' . __('Mailinglist ID', 'persberichten') . '</label>
             </td>
             <td>
-                <input type="text" name="openpub_press_mailing_list_id" id="openpub_press_mailing_list_id" value="' . $mailinglistID . '" />
-                <p>' . __('The id of the mailinglist in Laposta.', 'openpub-persberichten') . '</p>
+                <input type="text" name="press_mailing_list_id" id="press_mailing_list_id" value="' . $mailinglistID . '" />
+                <p>' . __('The id of the mailinglist in Laposta.', 'persberichten') . '</p>
             </td>
             </tr>';
     }
@@ -60,7 +60,7 @@ class TaxonomyController
      */
     public function mailingListAdminColumnHeader(array $columns): array
     {
-        $columns['openpub_press_mailing_list_id'] = __('Mailinglist ID', 'openpub-persberichten');
+        $columns['press_mailing_list_id'] = __('Mailinglist ID', 'persberichten');
 
         return $columns;
     }
@@ -76,8 +76,8 @@ class TaxonomyController
      */
     public function mailingListAdminColumnValue(string $html, string $columnName, int $taxID): string
     {
-        $maillingList = get_term($taxID, 'openpub_press_mailing_list');
-        $meta         = get_term_meta($maillingList->term_id, 'openpub_press_mailing_list_id', true);
+        $maillingList = get_term($taxID, 'press_mailing_list');
+        $meta         = get_term_meta($maillingList->term_id, 'press_mailing_list_id', true);
 
         return !empty($meta) ? $meta : 'onbekend';
     }
@@ -86,8 +86,8 @@ class TaxonomyController
     {
         update_term_meta(
             $termID,
-            'openpub_press_mailing_list_id',
-            sanitize_text_field($_POST['openpub_press_mailing_list_id'])
+            'press_mailing_list_id',
+            sanitize_text_field($_POST['press_mailing_list_id'])
         );
     }
 }

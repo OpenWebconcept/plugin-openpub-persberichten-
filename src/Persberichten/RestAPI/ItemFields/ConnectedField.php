@@ -49,7 +49,7 @@ class ConnectedField extends CreatesFields
      */
     protected function getMailingListIDs(PersberichtModel $persbericht): array
     {
-        $terms = $persbericht->getTerms('openpub_press_mailing_list');
+        $terms = $persbericht->getTerms('press_mailing_list');
 
         if (!is_array($terms)) {
             return [];
@@ -105,10 +105,10 @@ class ConnectedField extends CreatesFields
     protected function query(array $mailingListIDs, int $persberichtID): array
     {
         $args = [
-            'post_type' => 'openpub-press-item',
+            'post_type' => 'press-item',
             'tax_query' => [
                 [
-                    'taxonomy' => 'openpub_press_mailing_list',
+                    'taxonomy' => 'press_mailing_list',
                     'field'    => 'term_id',
                     'terms'    => $mailingListIDs,
                 ]

@@ -68,7 +68,7 @@ class PersberichtenController extends BaseController
     }
 
     /**
-     * Get posts filtered on taxonomy 'openpub_press_mailing_list'.
+     * Get posts filtered on taxonomy 'press_mailing_list'.
      *
      * @param WP_REST_Request $request
      * 

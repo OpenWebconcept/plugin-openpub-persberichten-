@@ -46,7 +46,7 @@ class RestAPIServiceProvider extends ServiceProvider
             'permission_callback' => '__return_true',
         ]);
 
-        register_rest_route($this->namespace, 'persberichten/type/(?<type>[\w-]+)', [
+        register_rest_route($this->namespace, 'persberichten/type/(?<type>[\w-]+)', [ // ?mailingslist=
             'methods'             => WP_REST_Server::READABLE,
             'callback'            => [new PersberichtenController($this->plugin), 'getTypeFilteredItems'],
             'permission_callback' => '__return_true',
