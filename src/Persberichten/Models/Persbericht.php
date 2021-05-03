@@ -91,7 +91,7 @@ class Persbericht
      */
     public function getDate(): \DateTime
     {
-        return \DateTime::createFromFormat('Y-m-d g:i:s', get_the_date('Y-m-d g:i:s', $this->getID()));
+        return \DateTime::createFromFormat('Y-m-d G:i:s', get_the_date('Y-m-d G:i:s', $this->getID()));
     }
 
     /**

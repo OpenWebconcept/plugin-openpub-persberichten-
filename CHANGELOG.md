@@ -1,3 +1,9 @@
+## [1.0.2]
+
+### Refactor
+
+-   Press release date in 24 hour format
+
 ## [1.0.1]
 
 ### Fix
