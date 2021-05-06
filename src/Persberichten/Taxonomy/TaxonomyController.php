@@ -8,12 +8,12 @@ class TaxonomyController
      * Add meta input field to taxonomy add new form.
      *
      * @param string $taxonomy
-     * 
+     *
      * @return void
      */
     public function addMailingListField(string $taxonomy): void
     {
-        if ($taxonomy !== 'press_mailing_list') {
+        if ('press_mailing_list' !== $taxonomy) {
             return;
         }
 
@@ -29,12 +29,12 @@ class TaxonomyController
      *
      * @param object $term
      * @param string $taxonomy
-     * 
+     *
      * @return void
      */
     public function editMailingListField(object $term, string $taxonomy): void
     {
-        if ($taxonomy !== 'press_mailing_list') {
+        if ('press_mailing_list' !== $taxonomy) {
             return;
         }
 
@@ -55,7 +55,7 @@ class TaxonomyController
      * Add admin column header 'Mailinglist ID'.
      *
      * @param array $columns
-     * 
+     *
      * @return array
      */
     public function mailingListAdminColumnHeader(array $columns): array
@@ -71,7 +71,7 @@ class TaxonomyController
      * @param string $html
      * @param string $columnName
      * @param int $taxID
-     * 
+     *
      * @return string
      */
     public function mailingListAdminColumnValue(string $html, string $columnName, int $taxID): string

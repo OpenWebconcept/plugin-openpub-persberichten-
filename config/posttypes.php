@@ -12,13 +12,13 @@ return [
             'archive' => [
                 'nopaging' => true,
             ],
-            'public'       => true,
-            'show_ui'      => true,
-            'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'comments'],
-            'menu_icon'    => 'dashicons-camera',
+            'public'        => true,
+            'show_ui'       => true,
+            'supports'      => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'comments'],
+            'menu_icon'     => 'dashicons-camera',
             'menu_position' => 5,
-            'show_in_rest' => true,
-            'admin_cols'   => [
+            'show_in_rest'  => true,
+            'admin_cols'    => [
                 'type' => [
                     'title'    => __('Mailing list', 'persberichten'),
                     'taxonomy' => 'press_mailing_list',

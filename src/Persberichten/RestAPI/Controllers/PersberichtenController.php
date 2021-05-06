@@ -25,7 +25,7 @@ class PersberichtenController extends BaseController
      * @param WP_REST_Request $request $request
      *
      * @return array|WP_Error
-     * @throws \OWC\Persberichten\Exceptions\PropertyNotExistsException 
+     * @throws \OWC\Persberichten\Exceptions\PropertyNotExistsException
      * @throws \ReflectionException
      */
     public function getItem(WP_REST_Request $request)
@@ -71,7 +71,7 @@ class PersberichtenController extends BaseController
      * Get posts filtered on taxonomy 'press_mailing_list'.
      *
      * @param WP_REST_Request $request
-     * 
+     *
      * @return arrray
      */
     public function getTypeFilteredItems(WP_REST_Request $request): array

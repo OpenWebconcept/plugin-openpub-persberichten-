@@ -2,8 +2,8 @@
 
 namespace OWC\Persberichten\Repositories;
 
-use WP_Post;
 use OWC\Persberichten\Models\Persbericht as PersberichtModel;
+use WP_Post;
 
 class Persbericht extends AbstractRepository
 {
@@ -44,7 +44,7 @@ class Persbericht extends AbstractRepository
      * Make the portal url used in the portal.
      *
      * @param string $slug
-     * 
+     *
      * @return string
      */
     public function makePortalURL(string $slug): string
@@ -74,7 +74,7 @@ class Persbericht extends AbstractRepository
      * Add tax query to current query.
      *
      * @param string $type
-     * 
+     *
      * @return array
      */
     public static function addFilterTypeParameters(string $type = ''): array

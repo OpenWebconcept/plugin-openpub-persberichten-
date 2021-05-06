@@ -2,10 +2,10 @@
 
 namespace OWC\Persberichten\Laposta;
 
-use OWC\Persberichten\Exceptions\LapostaRequestException;
-use OWC\Persberichten\Models\Persbericht;
-use OWC\Persberichten\Foundation\Plugin;
 use \WP_Post;
+use OWC\Persberichten\Exceptions\LapostaRequestException;
+use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Models\Persbericht;
 
 class LapostaController
 {
@@ -41,7 +41,7 @@ class LapostaController
 
         $alreadyCreated = get_post_meta($post->ID, '_owc_press_release_is_created', true);
 
-        if ($post->post_type !== 'press-item' || $alreadyCreated === '1') {
+        if ('press-item' !== $post->post_type || '1' === $alreadyCreated) {
             return;
         }
 
@@ -60,7 +60,7 @@ class LapostaController
      * Send post content to a Laposta campaign.
      *
      * @param Persbericht $pressRelease
-     * 
+     *
      * @return void
      */
     protected function handleLaposta(Persbericht $pressRelease, array $mailingLists): void
@@ -82,7 +82,7 @@ class LapostaController
      *
      * @param array $terms
      * @param string $metaKey
-     * 
+     *
      * @return array
      */
     protected function getTermsMeta(array $terms, string $metaKey): array
@@ -106,7 +106,7 @@ class LapostaController
      * Validate if the laposta campaign exists.
      *
      * @param string $campaignID
-     * 
+     *
      * @throws LapostaRequestException
      * @return boolean
      */
@@ -130,7 +130,7 @@ class LapostaController
     /**
      * @param Persbericht $pressRelease
      * @param array $mailingListIDs
-     * 
+     *
      * @return string
      */
     protected function createCampaign(Persbericht $pressRelease, array $mailingListIDs): string
@@ -152,7 +152,7 @@ class LapostaController
      *
      * @param Persbericht $pressRelease
      * @param string $campaignID
-     * 
+     *
      * @return void
      */
     protected function populateCampaign(Persbericht $pressRelease, string $campaignID): void
@@ -174,7 +174,7 @@ class LapostaController
      *
      * @param Persbericht $pressRelease
      * @param string $campaignID
-     * 
+     *
      * @return void
      */
     protected function sendCampaign(Persbericht $pressRelease, string $campaignID): void
@@ -199,7 +199,7 @@ class LapostaController
      *
      * @param Persbericht $pressRelease
      * @param array $mailingListIDs
-     * 
+     *
      * @return array
      */
     protected function makeCampaignBody(Persbericht $pressRelease, array $mailingListIDs): array
@@ -209,7 +209,7 @@ class LapostaController
             'name'    => $pressRelease->getTitle(),
             'subject' => $pressRelease->getTitle(),
             'from'    => [
-                'name' => $this->plugin->settings->getOrganisationName(),
+                'name'  => $this->plugin->settings->getOrganisationName(),
                 'email' => $this->plugin->settings->getOrganisationEmail()
             ],
             'reply_to' => $this->plugin->settings->getReployToEmail(),
@@ -222,7 +222,7 @@ class LapostaController
      *
      * @param Persbericht $pressRelease
      * @param string $campaignID
-     * 
+     *
      * @return array
      */
     protected function makeCampaignContentBody(Persbericht $pressRelease, string $campaignID): array
@@ -244,7 +244,7 @@ class LapostaController
      * Make the required import url for Laposta.
      *
      * @param string $slug
-     * 
+     *
      * @return string
      */
     protected function makeImportURL(string $slug): string
@@ -258,7 +258,7 @@ class LapostaController
 
     /**
      * @param \Exception $exception
-     * 
+     *
      * @return void
      */
     protected function returnJsonError(\Exception $exception): void

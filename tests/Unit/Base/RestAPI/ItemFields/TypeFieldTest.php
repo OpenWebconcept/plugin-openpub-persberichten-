@@ -5,7 +5,6 @@ namespace OWC\Persberichten\Tests\Base\RestAPI\ItemFields;
 use Mockery as m;
 use OWC\Persberichten\Foundation\Config;
 use OWC\Persberichten\Foundation\Loader;
-use OWC\Persberichten\Models\Persbericht;
 use OWC\Persberichten\Foundation\Plugin;
 use OWC\Persberichten\RestAPI\ItemFields\TypeField;
 use OWC\Persberichten\Tests\TestCase;

@@ -2,10 +2,10 @@
 
 namespace OWC\Persberichten\RestAPI\ItemFields;
 
-use OWC\Persberichten\Support\CreatesFields;
+use OWC\Persberichten\Foundation\Plugin;
 use OWC\Persberichten\Models\Persbericht as PersberichtModel;
 use OWC\Persberichten\Repositories\Persbericht;
-use OWC\Persberichten\Foundation\Plugin;
+use OWC\Persberichten\Support\CreatesFields;
 use WP_Post;
 use WP_Query;
 
@@ -44,7 +44,7 @@ class ConnectedField extends CreatesFields
 
     /**
      * @param PersberichtModel $persbericht
-     * 
+     *
      * @return array
      */
     protected function getMailingListIDs(PersberichtModel $persbericht): array
@@ -65,7 +65,7 @@ class ConnectedField extends CreatesFields
      *
      * @param array $mailingListIDs
      * @param integer $persberichtID
-     * 
+     *
      * @return array
      */
     protected function getConnectedItems(array $mailingListIDs, int $persberichtID): array
@@ -99,7 +99,7 @@ class ConnectedField extends CreatesFields
      *
      * @param array $mailingListIDs
      * @param integer $persberichtID
-     * 
+     *
      * @return array
      */
     protected function query(array $mailingListIDs, int $persberichtID): array

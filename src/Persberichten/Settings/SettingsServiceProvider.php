@@ -2,8 +2,8 @@
 
 namespace OWC\Persberichten\Settings;
 
-use OWC\Persberichten\Traits\CheckPluginActive;
 use OWC\Persberichten\Metabox\MetaboxBaseServiceProvider;
+use OWC\Persberichten\Traits\CheckPluginActive;
 
 class SettingsServiceProvider extends MetaboxBaseServiceProvider
 {

@@ -25,7 +25,7 @@ class LapostaRequest
      * @param string $endpoint
      * @param string $method
      * @param array $body
-     * 
+     *
      * @throws LapostaRequestException
      * @return array
      */

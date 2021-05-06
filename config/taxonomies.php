@@ -6,7 +6,7 @@ return [
         'args'         => [
             'show_in_rest'      => true,
             'show_admin_column' => true,
-            'labels' => [
+            'labels'            => [
                 'name'              => __('Mailing list', 'persberichten'),
                 'singular_name'     => __('Mailing list', 'persberichten'),
                 'search_items'      => __('Search mailing lists', 'persberichten'),

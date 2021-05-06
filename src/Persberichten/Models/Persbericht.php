@@ -46,7 +46,7 @@ class Persbericht
      * Make Post model from WP_Post object
      *
      * @param \WP_Post $post
-     * 
+     *
      * @return Persbericht
      */
     public static function makeFrom(\WP_Post $post)
