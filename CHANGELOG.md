@@ -1,3 +1,14 @@
+## [1.0.3]
+
+### Features
+
+-   Add reply to settings field + translations
+
+### Chores
+
+-   Run php-cs-fixer
+-   Add phpstan formatter
+
 ## [1.0.2]
 
 ### Refactor
