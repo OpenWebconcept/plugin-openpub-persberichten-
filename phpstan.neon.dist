@@ -19,7 +19,7 @@ parameters:
     scanDirectories:
         - %currentWorkingDirectory%/src/
     ignoreErrors:
-        - '#Call to method get\(\) on an unknown class OWC\\OpenPub\\Base\\Config\.#'
+        - '#Call to method get\(\) on an unknown class OWC\\Persberichten\\Base\\Config\.#'
         # Uses func_get_args()
         # Fixed in WordPress 5.3
         - '#Function register_extended_taxonomy not found\.#'
