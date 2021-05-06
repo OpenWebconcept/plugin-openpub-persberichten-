@@ -1,3 +1,9 @@
+## [1.0.4]
+
+### Fixes
+
+-   Typo getReployToEmail to getReplyToEmail.
+
 ## [1.0.3]
 
 ### Features

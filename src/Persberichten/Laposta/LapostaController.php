@@ -212,7 +212,7 @@ class LapostaController
                 'name'  => $this->plugin->settings->getOrganisationName(),
                 'email' => $this->plugin->settings->getOrganisationEmail()
             ],
-            'reply_to' => $this->plugin->settings->getReployToEmail(),
+            'reply_to' => $this->plugin->settings->getReplyToEmail(),
             'list_ids' => $mailingListIDs,
         ];
     }
