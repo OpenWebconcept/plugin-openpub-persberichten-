@@ -208,10 +208,11 @@ class LapostaController
             'type'    => 'regular',
             'name'    => $pressRelease->getTitle(),
             'subject' => $pressRelease->getTitle(),
-            'from' => [
-                'name' => $this->getOrganisationName(),
-                'email' => $this->getOrganisationEmail()
+            'from'    => [
+                'name' => $this->plugin->settings->getOrganisationName(),
+                'email' => $this->plugin->settings->getOrganisationEmail()
             ],
+            'reply_to' => $this->plugin->settings->getReployToEmail(),
             'list_ids' => $mailingListIDs,
         ];
     }
@@ -237,16 +238,6 @@ class LapostaController
             'import_url'    => $importURL,
             'inline_css'    => true
         ];
-    }
-
-    protected function getOrganisationName(): string
-    {
-        return $this->plugin->settings->getOrganisationName();
-    }
-
-    protected function getOrganisationEmail(): string
-    {
-        return $this->plugin->settings->getOrganisationEmail();
     }
 
     /**

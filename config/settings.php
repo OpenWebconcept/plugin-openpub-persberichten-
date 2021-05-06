@@ -32,6 +32,12 @@ return [
                     'id'   => 'setting_press_release_account_email',
                     'type' => 'text',
                 ],
+                'settings_press_reply_to_email' => [
+                    'name' => __('Reply to', 'persberichten'),
+                    'desc' => __('E-mail address that is used when the subscriber replies on an email.', 'persberichten'),
+                    'id'   => 'setting_press_reply_to_email',
+                    'type' => 'text',
+                ],
                 'settings_press_release_api_key' => [
                     'name' => __('Laposta API-key', 'persberichten'),
                     'desc' => __('Authentication for the Laposta API.', 'persberichten'),
