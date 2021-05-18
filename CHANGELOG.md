@@ -1,3 +1,9 @@
+## [1.0.5]
+
+### Chore
+
+-   Small clean-up.
+
 ## [1.0.4]
 
 ### Fixes

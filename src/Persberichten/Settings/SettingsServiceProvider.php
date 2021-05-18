@@ -56,6 +56,6 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
             $metaboxes[] = $this->processMetabox($metabox);
         }
 
-        return array_merge($rwmbMetaboxes, apply_filters("owc/openpub/base/before-register-settings", $metaboxes));
+        return array_merge($rwmbMetaboxes, $metaboxes);
     }
 }
