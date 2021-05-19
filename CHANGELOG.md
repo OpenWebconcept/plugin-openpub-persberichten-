@@ -1,3 +1,9 @@
+## [1.0.6]
+
+### Chore
+
+-   Small clean-up in unit tests.
+
 ## [1.0.5]
 
 ### Chore

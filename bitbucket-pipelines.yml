@@ -13,7 +13,7 @@ pipelines:
 
             - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
   branches:
-    "{master,develop}":
+    "{main,develop}":
       - step:
           name: unit test
           caches:

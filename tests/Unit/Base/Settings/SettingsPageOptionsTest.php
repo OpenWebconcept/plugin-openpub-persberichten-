@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\PDC\Tests\Base\Settings;
+namespace OWC\Persberichten\Tests\Base\Settings;
 
 use OWC\Persberichten\Settings\SettingsPageOptions;
 use OWC\Persberichten\Tests\TestCase;

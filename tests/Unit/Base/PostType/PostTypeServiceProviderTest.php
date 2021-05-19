@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC\Persberichten\Tests\Persberichten\PostType;
+namespace OWC\Persberichten\Tests\Base\PostType;
 
 use Mockery as m;
 use OWC\Persberichten\Foundation\Config;

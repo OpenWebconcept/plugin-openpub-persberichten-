@@ -20,7 +20,7 @@ class Plugin
      *
      * @var string VERSION
      */
-    const VERSION = '1.0.5';
+    const VERSION = '1.0.6';
 
     /**
      * Path to the root of the plugin.
@@ -82,16 +82,6 @@ class Plugin
 
         // Set up service providers
         $this->callServiceProviders('register');
-
-        if (is_admin()) {
-            // $this->callServiceProviders('register', 'admin');
-            // $this->callServiceProviders('boot', 'admin');
-        }
-
-        if ('cli' === php_sapi_name()) {
-            // $this->callServiceProviders('register', 'cli');
-            // $this->callServiceProviders('boot', 'cli');
-        }
 
         $this->callServiceProviders('boot');
 

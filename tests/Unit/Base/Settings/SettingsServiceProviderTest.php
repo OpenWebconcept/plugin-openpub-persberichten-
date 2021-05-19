@@ -152,9 +152,6 @@ class SettingsServiceProviderTest extends TestCase
 
         $config->shouldReceive('get')->with('settings')->once()->andReturn($configMetaboxes);
 
-        //test for filter being called
-        \WP_Mock::expectFilter('owc/openpub/base/before-register-settings', $expectedMetaboxes);
-
         $this->assertEquals($expectedMetaboxes, $service->registerSettings([]));
 
         $existingMetaboxes = [

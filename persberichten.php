@@ -4,7 +4,7 @@
  * Plugin Name:       Yard | Persberichten
  * Plugin URI:        https://www.openwebconcept.nl/
  * Description:       Press releases are a variation on OpenPub items. A press release can be added to a laposta campaign based on the connected taxonomy. This only happens when the press release is saved for the first time.
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
  * License:           GPL-3.0
