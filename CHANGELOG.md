@@ -1,3 +1,9 @@
+## [1.0.7]
+
+### Chore
+
+-   Add uninstall file.
+
 ## [1.0.6]
 
 ### Chore
