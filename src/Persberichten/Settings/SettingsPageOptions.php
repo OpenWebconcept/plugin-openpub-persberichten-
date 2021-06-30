@@ -33,31 +33,6 @@ class SettingsPageOptions
         return $this->settings['_owc_setting_portal_press_release_item_slug'] ?? '';
     }
 
-    public function getOrganisationName(): string
-    {
-        return $this->settings['_owc_setting_press_release_organisation_account'] ?? '';
-    }
-
-    public function getOrganisationEmail(): string
-    {
-        return $this->settings['_owc_setting_press_release_account_email'] ?? '';
-    }
-
-    public function getReplyToEmail(): string
-    {
-        return $this->settings['_owc_setting_press_reply_to_email'] ?? '';
-    }
-
-    public function getApiKey(): string
-    {
-        return $this->settings['_owc_setting_press_release_api_key'] ?? '';
-    }
-
-    public function getApiURL(): string
-    {
-        return $this->settings['_owc_setting_press_release_api_url'] ?? '';
-    }
-
     /**
      * URL to the portal website.
      *
@@ -73,11 +48,6 @@ class SettingsPageOptions
         $defaultSettings = [
             '_owc_setting_portal_url'                           => '',
             '_owc_setting_portal_press_release_item_slug'       => '',
-            '_owc_setting_press_release_organisation_account'   => '',
-            '_owc_setting_press_release_account_email'          => '',
-            '_owc_setting_press_reply_to_email'                 => '',
-            '_owc_setting_press_release_api_key'                => '',
-            '_owc_setting_press_release_api_url'                => '',
             '_owc_setting_additional_message'                   => '',
         ];
 

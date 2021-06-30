@@ -5,10 +5,8 @@ return [
     // Service Providers.
     'providers'    => [
         // Global providers.
-        OWC\Persberichten\Laposta\LapostaServiceProvider::class,
         OWC\Persberichten\RestAPI\RestAPIServiceProvider::class,
         OWC\Persberichten\PostType\PostTypeServiceProvider::class,
-        OWC\Persberichten\Taxonomy\TaxonomyServiceProvider::class,
         OWC\Persberichten\Settings\SettingsServiceProvider::class,
     ],
 
