@@ -28,6 +28,18 @@ class ConnectedField extends CreatesFields
     }
 
     /**
+     * The condition for the creator.
+     *
+     * @return callable
+     */
+    protected function condition(): callable
+    {
+        return function () {
+            return taxonomy_exists('press_mailing_list');
+        };
+    }
+
+    /**
      * Creates an array of connected posts.
      *
      * @param WP_Post $post

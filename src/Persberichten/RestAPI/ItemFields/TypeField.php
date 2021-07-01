@@ -9,6 +9,18 @@ use WP_Post;
 class TypeField extends CreatesFields
 {
     /**
+     * The condition for the creator.
+     *
+     * @return callable
+     */
+    protected function condition(): callable
+    {
+        return function () {
+            return taxonomy_exists('press_mailing_list');
+        };
+    }
+
+    /**
      * Create the type array field for a given post.
      *
      * @param WP_Post $post
