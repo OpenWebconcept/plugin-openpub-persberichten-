@@ -22,46 +22,6 @@ msgstr "Portal persbericht item slug"
 msgid "URL for press release items in the portal, eg \"persberichten\""
 msgstr "URL voor persberichten in de portal, bv \"persberichten\""
 
-#: config/settings.php:24
-msgid "Organisation"
-msgstr "Organisatie"
-
-#: config/settings.php:25
-msgid "The name of the Laposta account holder."
-msgstr "De naam van de organisatie achter het Laposta account."
-
-#: config/settings.php:30
-msgid "E-mail address"
-msgstr "E-mailadres"
-
-#: config/settings.php:31
-msgid "E-mail address of the laposta account holder." 
-msgstr "E-mailadres van het Laposta account."
-
-#: config/settings.php:36
-msgid "Reply to"
-msgstr "Antwoord op"
-
-#: config/settings.php:37
-msgid "E-mail address that is used when the subscriber replies on an email."
-msgstr "E-mailadres dat wordt gebruikt wanneer de abonnee reageert op een email."
-
-#: config/settings.php:42
-msgid "Laposta API-key"
-msgstr "Laposta API-sleutel"
-
-#: config/settings.php:43
-msgid "Authentication for the Laposta API."
-msgstr "Authenticatie voor de API van Laposta."
-
-#: config/settings.php:48
-msgid "Laposta API-url"
-msgstr "Laposta API-url"
-
-#: config/settings.php:49
-msgid "Used for the connection between the Laposta API."
-msgstr "Wordt gebruikt voor de connectie met de API van Laposta"
-
 #: config/settings.php:54
 msgid "Additional message"
 msgstr "Aanvullend informatie"
@@ -69,42 +29,6 @@ msgstr "Aanvullend informatie"
 #: config/settings.php:55
 msgid "Additional message that will be added to each press release."
 msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
-
-#: config/taxonomies.php:10 config/taxonomies.php:11 config/taxonomies.php:25 config/posttypes.php:25 config/posttypes.php:58
-msgid "Mailing list"
-msgstr "Verzendlijst"
-
-#: config/taxonomies.php:12
-msgid "Search mailing lists"
-msgstr "Zoek verzendlijst"
-
-#: config/taxonomies.php:13
-msgid "All mailing lists"
-msgstr "Alle verzendlijsten"
-
-#: config/taxonomies.php:14 config/taxonomies.php:15
-msgid "Parent mailing list"
-msgstr "Hoofd verzendlijst"
-
-#: config/taxonomies.php:16
-msgid "Edit mailing list"
-msgstr "Wijzig verzendlijst"
-
-#: config/taxonomies.php:16
-msgid "Update mailing list"
-msgstr "Verzendlijst bijwerken"
-
-#: config/taxonomies.php:18
-msgid "Add new mailing list"
-msgstr "Voeg verzendlijst toe"
-
-#: config/taxonomies.php:18
-msgid "New mailing list"
-msgstr "Nieuwe verzendlijst"
-
-#: config/taxonomies.php:20 config/taxonomies.php:26
-msgid "Mailing lists"
-msgstr "Verzendlijsten"
 
 #: config/posttypes.php:29 config/posttypes.php:37
 msgid "Expired"
@@ -177,11 +101,3 @@ msgstr "Inactief"
 #: src/Persberichten/Foundation/DependencyChecker.php:136
 msgid "Minimal version:"
 msgstr "Minimale versie:"
-
-#: src/Persberichten/Taxonomy/TaxonomyController.php:14 src/Persberichten/Taxonomy/TaxonomyController.php:30 src/Persberichten/Taxonomy/TaxonomyController.php:41
-msgid "Mailinglist ID"
-msgstr "Verzendlijst ID"
-
-#: src/Persberichten/Taxonomy/TaxonomyController.php:16 src/Persberichten/Taxonomy/TaxonomyController.php:34
-msgid "The id of the mailinglist in Laposta."
-msgstr "ID van de verzendlijst in Laposta."
