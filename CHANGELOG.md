@@ -1,3 +1,9 @@
+## [2.0.0]
+
+### Chore
+
+-   Remove laposta from plugin to theme.
+
 ## [1.0.7]
 
 ### Chore
