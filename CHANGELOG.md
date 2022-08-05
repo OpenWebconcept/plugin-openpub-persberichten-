@@ -1,8 +1,8 @@
-
 ## [2.0.1]
 
-### Chore
+### Feat
 
+-   Add internal information field to single press-releases.
 -   Remove Meta Box Group dependency
 
 ## [2.0.0]

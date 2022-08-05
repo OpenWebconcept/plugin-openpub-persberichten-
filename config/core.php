@@ -8,6 +8,7 @@ return [
         OWC\Persberichten\RestAPI\RestAPIServiceProvider::class,
         OWC\Persberichten\PostType\PostTypeServiceProvider::class,
         OWC\Persberichten\Settings\SettingsServiceProvider::class,
+        OWC\Persberichten\Metabox\MetaboxServiceProvider::class
     ],
 
     /**
