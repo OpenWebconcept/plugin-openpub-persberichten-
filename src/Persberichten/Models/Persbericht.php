@@ -39,7 +39,7 @@ class Persbericht
     public function __construct(array $data, array $meta = null)
     {
         $this->data = $data;
-        $this->meta = is_null($meta) ? [] : $meta;
+        $this->meta = is_null($meta) ? \get_post_meta($data['ID']) : $meta;
     }
 
     /**

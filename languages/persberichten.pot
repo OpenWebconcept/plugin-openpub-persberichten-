@@ -101,3 +101,15 @@ msgstr ""
 #: src/Persberichten/Foundation/DependencyChecker.php:136
 msgid "Minimal version:"
 msgstr ""
+
+#: config/metaboxes.php:6
+msgid "Internal"
+msgstr ""
+
+#: config/metaboxes.php:14
+msgid "Internal info"
+msgstr ""
+
+#: config/metaboxes.php:15
+msgid "Internal info is only included in the newsletter. Please make sure to select the correct internal mailing list."
+msgstr ""
