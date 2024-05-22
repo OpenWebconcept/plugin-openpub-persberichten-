@@ -30,11 +30,5 @@ return [
             'version' => '4.14.0',
             'file'    => 'meta-box/meta-box.php',
         ],
-        [
-            'type'    => 'plugin',
-            'label'   => 'Meta Box Group',
-            'version' => '1.2.14',
-            'file'    => 'metabox-group/meta-box-group.php',
-        ],
     ]
 ];
