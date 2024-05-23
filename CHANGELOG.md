@@ -1,3 +1,10 @@
+
+## [2.0.1]
+
+### Chore
+
+-   Remove Meta Box Group dependency
+
 ## [2.0.0]
 
 ### Chore
