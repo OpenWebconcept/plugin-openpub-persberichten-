@@ -1,94 +1,187 @@
-#: config/settings_pages.php:7 config/settings_pages.php:11 config/settings_pages.php:15 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
+# Copyright (C) 2024 Yard | Digital Agency
+# This file is distributed under the GPL-3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Yard | Persberichten 2.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/persberichten\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-07-09T05:33:54+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: persberichten\n"
+
+#. Plugin Name of the plugin
+msgid "Yard | Persberichten"
+msgstr "Yard | Persberichten"
+
+#. Plugin URI of the plugin
+msgid "https://www.openwebconcept.nl/"
+msgstr "https://www.openwebconcept.nl/"
+
+#. Description of the plugin
+msgid "Press releases are a variation on OpenPub items. A press release can be added to a laposta campaign based on the connected taxonomy. This only happens when the press release is saved for the first time."
+msgstr "Persberichten zijn een variatie op OpenPub items. Een persbericht kan worden toegevoegd aan een Laposta-campagne op basis van de verbonden taxonomie. Dit gebeurt alleen wanneer het persbericht voor de eerste keer wordt opgeslagen."
+
+#. Author of the plugin
+msgid "Yard | Digital Agency"
+msgstr "Yard | Digital Agency"
+
+#. Author URI of the plugin
+msgid "https://www.yard.nl/"
+msgstr "https://www.yard.nl/"
+
+#: config/metaboxes.php:6
+msgid "Internal"
+msgstr "Intern"
+
+#: config/metaboxes.php:14
+msgid "Internal info"
+msgstr "Interne informatie"
+
+#: config/metaboxes.php:15
+msgid "Internal info is only included in the newsletter. Please make sure to select the correct internal mailing list."
+msgstr "Interne informatie wordt alleen opgenomen in de nieuwsbrief. Zorg ervoor dat u de juiste interne mailinglijst selecteert."
+
+#: config/posttypes.php:23
+#: config/posttypes.php:36
+#: config/taxonomies.php:10
+#: config/taxonomies.php:11
+#: config/taxonomies.php:25
+msgid "Mailing list"
+msgstr "Mailinglijst"
+
+#: config/posttypes.php:27
+msgid "Published"
+msgstr "Gepubliceerd"
+
+#: config/posttypes.php:41
+#: config/posttypes.php:59
+msgid "Press release"
+msgstr "Persbericht"
+
+#: config/posttypes.php:42
+#: config/posttypes.php:60
+#: config/posttypes.php:61
+#: config/settings.php:6
+#: config/settings_pages.php:7
+#: config/settings_pages.php:11
+#: config/settings_pages.php:15
 msgid "Press releases"
 msgstr "Persberichten"
+
+#: config/posttypes.php:43
+#: config/posttypes.php:46
+msgid "New press release"
+msgstr "Nieuw persbericht"
+
+#: config/posttypes.php:44
+msgid "Add new press release"
+msgstr "Nieuw persbericht toevoegen"
+
+#: config/posttypes.php:45
+msgid "Add press release"
+msgstr "Persbericht toevoegen"
+
+#: config/posttypes.php:47
+msgid "Edit press release"
+msgstr "Persbericht bewerken"
+
+#: config/posttypes.php:48
+msgid "View press release"
+msgstr "Persbericht bekijken"
+
+#: config/posttypes.php:49
+msgid "All press releases"
+msgstr "Alle persberichten"
+
+#: config/posttypes.php:50
+msgid "Search press release"
+msgstr "Persbericht zoeken"
+
+#: config/posttypes.php:51
+msgid "Parent press release:"
+msgstr "Bovenliggend persbericht:"
+
+#: config/posttypes.php:52
+msgid "No press releases found."
+msgstr "Geen persberichten gevonden."
+
+#: config/posttypes.php:53
+msgid "No press releases found in trash."
+msgstr "Geen persberichten gevonden in prullenbak."
+
+#: config/settings.php:12
+msgid "Portal URL"
+msgstr "Portaal URL"
+
+#: config/settings.php:13
+msgid "URL including http(s)://"
+msgstr "URL inclusief http(s)://"
+
+#: config/settings.php:18
+msgid "Portal press release item slug"
+msgstr "Portaal persbericht item slug"
+
+#: config/settings.php:19
+msgid "URL for press release items in the portal, eg \"persberichten\""
+msgstr "URL voor persbericht items in het portaal, bijv. \"persberichten\""
+
+#: config/settings.php:24
+msgid "Additional message"
+msgstr "Aanvullend bericht"
+
+#: config/settings.php:25
+msgid "Additional message that will be added to each press release."
+msgstr "Aanvullend bericht dat aan elk persbericht wordt toegevoegd."
 
 #: config/settings_pages.php:13
 msgid "Save"
 msgstr "Opslaan"
 
-#: config/settings.php:12
-msgid "Portal URL"
-msgstr "Portal URL"
+#: config/taxonomies.php:12
+msgid "Search mailing lists"
+msgstr "Mailinglijsten zoeken"
 
-#: config/settings.php:13
-msgid "URL including http(s)://"
-msgstr "URL inclusief http(s)://" 
+#: config/taxonomies.php:13
+msgid "All mailing lists"
+msgstr "Alle mailinglijsten"
 
-#: config/settings.php:18
-msgid "Portal press release item slug"
-msgstr "Portal persbericht item slug"
+#: config/taxonomies.php:14
+msgid "Parent mailing list"
+msgstr "Bovenliggende mailinglijst"
 
-#: config/settings.php:19
-msgid "URL for press release items in the portal, eg \"persberichten\""
-msgstr "URL voor persberichten in de portal, bv \"persberichten\""
+#: config/taxonomies.php:15
+msgid "Parent mailing list:"
+msgstr "Bovenliggende mailinglijst:"
 
-#: config/settings.php:54
-msgid "Additional message"
-msgstr "Aanvullend informatie"
+#: config/taxonomies.php:16
+msgid "Edit mailing list"
+msgstr "Mailinglijst bewerken"
 
-#: config/settings.php:55
-msgid "Additional message that will be added to each press release."
-msgstr "Aanvullende informatie dat aan ieder persbericht wordt toegevoegd."
+#: config/taxonomies.php:17
+msgid "Update mailing list"
+msgstr "Mailinglijst bijwerken"
 
-#: config/posttypes.php:29 config/posttypes.php:37
-msgid "Expired"
-msgstr "Verlopen"
+#: config/taxonomies.php:18
+msgid "Add new mailing list"
+msgstr "Nieuwe mailinglijst toevoegen"
 
-#: config/posttypes.php:41
-msgid "No expire date"
-msgstr "Geen verloopdatum"
+#: config/taxonomies.php:19
+msgid "New mailing list"
+msgstr "Nieuwe mailinglijst"
 
-#: config/posttypes.php:43
-msgid "Will expire on"
-msgstr "Is verlopen op"
+#: config/taxonomies.php:20
+#: config/taxonomies.php:26
+msgid "Mailing lists"
+msgstr "Mailinglijsten"
 
-#: config/posttypes.php:49
-msgid "Published"
-msgstr "Gepubliceerd"
-
-#: config/posttypes.php:63 config/posttypes.php:81
-msgid "Press release"
-msgstr "Persbericht"
-
-#: config/posttypes.php:65 config/posttypes.php:68
-msgid "New press release"
-msgstr "Nieuw persbericht"
-
-#: config/posttypes.php:66
-msgid "Add new press release"
-msgstr "Voeg nieuw persbericht toe"
-
-#: config/posttypes.php:67
-msgid "Add press release"
-msgstr "Voeg persbericht toe"
-
-#: config/posttypes.php:69
-msgid "Edit press release"
-msgstr "Wijzig persbericht"
-
-#: config/posttypes.php:70
-msgid "View press release"
-msgstr "Bekijk persbericht"
-
-#: config/posttypes.php:71
-msgid "All press releases"
-msgstr "Alle persberichten"
-
-#: config/posttypes.php:72
-msgid "Search press release"
-msgstr "Zoek persbericht"
-
-#: config/posttypes.php:73
-msgid "Parent press release:"
-msgstr "Hoofd persberichten:"
-
-#: config/posttypes.php:74
-msgid "No press releases found."
-msgstr "Geen persberichten gevonden."
-
-#: config/posttypes.php:75
-msgid "No press releases found in trash."
-msgstr "Geen persberichten gevonden in de prullenbak."
+#: src/Persberichten/Foundation/DependencyChecker.php:67
+msgid "The following plugins are required to use the OpenPub:"
+msgstr "De volgende plugins zijn vereist om de OpenPub te gebruiken:"
 
 #: src/Persberichten/Foundation/DependencyChecker.php:108
 msgid "Class does not exist"
@@ -101,15 +194,3 @@ msgstr "Inactief"
 #: src/Persberichten/Foundation/DependencyChecker.php:136
 msgid "Minimal version:"
 msgstr "Minimale versie:"
-
-#: config/metaboxes.php:6
-msgid "Internal"
-msgstr "Intern"
-
-#: config/metaboxes.php:14
-msgid "Internal info"
-msgstr "Interne informatie"
-
-#: config/metaboxes.php:15
-msgid "Internal info is only included in the newsletter. Please make sure to select the correct internal mailing list."
-msgstr "Interne info wordt alleen toegevoegd aan de nieuwsbrief. Zorg ervoor dat de juiste interne verzendlijst gekozen wordt."

@@ -1,105 +1,37 @@
-#: config/settings_pages.php:7 config/settings_pages.php:11 config/settings_pages.php:15 config/settings.php:6 config/posttypes.php:64 config/posttypes.php:82 config/posttypes.php:83
-msgid "Press releases"
+# Copyright (C) 2024 Yard | Digital Agency
+# This file is distributed under the GPL-3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Yard | Persberichten 2.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/persberichten\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-07-09T05:33:54+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: persberichten\n"
+
+#. Plugin Name of the plugin
+msgid "Yard | Persberichten"
 msgstr ""
 
-#: config/settings_pages.php:13
-msgid "Save"
+#. Plugin URI of the plugin
+msgid "https://www.openwebconcept.nl/"
 msgstr ""
 
-#: config/settings.php:12
-msgid "Portal URL"
+#. Description of the plugin
+msgid "Press releases are a variation on OpenPub items. A press release can be added to a laposta campaign based on the connected taxonomy. This only happens when the press release is saved for the first time."
 msgstr ""
 
-#: config/settings.php:13
-msgid "URL including http(s)://"
-msgstr "" 
-
-#: config/settings.php:18
-msgid "Portal press release item slug"
+#. Author of the plugin
+msgid "Yard | Digital Agency"
 msgstr ""
 
-#: config/settings.php:19
-msgid "URL for press release items in the portal, eg \"persberichten\""
-msgstr ""
-
-#: config/settings.php:54
-msgid "Additional message"
-msgstr ""
-
-#: config/settings.php:55
-msgid "Additional message that will be added to each press release."
-msgstr ""
-
-#: config/posttypes.php:29 config/posttypes.php:37
-msgid "Expired"
-msgstr ""
-
-#: config/posttypes.php:41
-msgid "No expire date"
-msgstr ""
-
-#: config/posttypes.php:43
-msgid "Will expire on"
-msgstr ""
-
-#: config/posttypes.php:49
-msgid "Published"
-msgstr ""
-
-#: config/posttypes.php:63 config/posttypes.php:81
-msgid "Press release"
-msgstr ""
-
-#: config/posttypes.php:65 config/posttypes.php:68
-msgid "New press release"
-msgstr ""
-
-#: config/posttypes.php:66
-msgid "Add new press release"
-msgstr ""
-
-#: config/posttypes.php:67
-msgid "Add press release"
-msgstr ""
-
-#: config/posttypes.php:69
-msgid "Edit press release"
-msgstr ""
-
-#: config/posttypes.php:70
-msgid "View press release"
-msgstr ""
-
-#: config/posttypes.php:71
-msgid "All press releases"
-msgstr ""
-
-#: config/posttypes.php:72
-msgid "Search press release"
-msgstr ""
-
-#: config/posttypes.php:73
-msgid "Parent press release:"
-msgstr ""
-
-#: config/posttypes.php:74
-msgid "No press releases found."
-msgstr ""
-
-#: config/posttypes.php:75
-msgid "No press releases found in trash."
-msgstr ""
-
-#: src/Persberichten/Foundation/DependencyChecker.php:108
-msgid "Class does not exist"
-msgstr ""
-
-#: src/Persberichten/Foundation/DependencyChecker.php:128
-msgid "Inactive"
-msgstr ""
-
-#: src/Persberichten/Foundation/DependencyChecker.php:136
-msgid "Minimal version:"
+#. Author URI of the plugin
+msgid "https://www.yard.nl/"
 msgstr ""
 
 #: config/metaboxes.php:6
@@ -112,4 +44,153 @@ msgstr ""
 
 #: config/metaboxes.php:15
 msgid "Internal info is only included in the newsletter. Please make sure to select the correct internal mailing list."
+msgstr ""
+
+#: config/posttypes.php:23
+#: config/posttypes.php:36
+#: config/taxonomies.php:10
+#: config/taxonomies.php:11
+#: config/taxonomies.php:25
+msgid "Mailing list"
+msgstr ""
+
+#: config/posttypes.php:27
+msgid "Published"
+msgstr ""
+
+#: config/posttypes.php:41
+#: config/posttypes.php:59
+msgid "Press release"
+msgstr ""
+
+#: config/posttypes.php:42
+#: config/posttypes.php:60
+#: config/posttypes.php:61
+#: config/settings.php:6
+#: config/settings_pages.php:7
+#: config/settings_pages.php:11
+#: config/settings_pages.php:15
+msgid "Press releases"
+msgstr ""
+
+#: config/posttypes.php:43
+#: config/posttypes.php:46
+msgid "New press release"
+msgstr ""
+
+#: config/posttypes.php:44
+msgid "Add new press release"
+msgstr ""
+
+#: config/posttypes.php:45
+msgid "Add press release"
+msgstr ""
+
+#: config/posttypes.php:47
+msgid "Edit press release"
+msgstr ""
+
+#: config/posttypes.php:48
+msgid "View press release"
+msgstr ""
+
+#: config/posttypes.php:49
+msgid "All press releases"
+msgstr ""
+
+#: config/posttypes.php:50
+msgid "Search press release"
+msgstr ""
+
+#: config/posttypes.php:51
+msgid "Parent press release:"
+msgstr ""
+
+#: config/posttypes.php:52
+msgid "No press releases found."
+msgstr ""
+
+#: config/posttypes.php:53
+msgid "No press releases found in trash."
+msgstr ""
+
+#: config/settings.php:12
+msgid "Portal URL"
+msgstr ""
+
+#: config/settings.php:13
+msgid "URL including http(s)://"
+msgstr ""
+
+#: config/settings.php:18
+msgid "Portal press release item slug"
+msgstr ""
+
+#: config/settings.php:19
+msgid "URL for press release items in the portal, eg \"persberichten\""
+msgstr ""
+
+#: config/settings.php:24
+msgid "Additional message"
+msgstr ""
+
+#: config/settings.php:25
+msgid "Additional message that will be added to each press release."
+msgstr ""
+
+#: config/settings_pages.php:13
+msgid "Save"
+msgstr ""
+
+#: config/taxonomies.php:12
+msgid "Search mailing lists"
+msgstr ""
+
+#: config/taxonomies.php:13
+msgid "All mailing lists"
+msgstr ""
+
+#: config/taxonomies.php:14
+msgid "Parent mailing list"
+msgstr ""
+
+#: config/taxonomies.php:15
+msgid "Parent mailing list:"
+msgstr ""
+
+#: config/taxonomies.php:16
+msgid "Edit mailing list"
+msgstr ""
+
+#: config/taxonomies.php:17
+msgid "Update mailing list"
+msgstr ""
+
+#: config/taxonomies.php:18
+msgid "Add new mailing list"
+msgstr ""
+
+#: config/taxonomies.php:19
+msgid "New mailing list"
+msgstr ""
+
+#: config/taxonomies.php:20
+#: config/taxonomies.php:26
+msgid "Mailing lists"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:67
+msgid "The following plugins are required to use the OpenPub:"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:108
+msgid "Class does not exist"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:128
+msgid "Inactive"
+msgstr ""
+
+#: src/Persberichten/Foundation/DependencyChecker.php:136
+msgid "Minimal version:"
 msgstr ""
