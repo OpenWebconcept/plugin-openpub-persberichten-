@@ -15,6 +15,8 @@ return [
                 'connected'    => OWC\Persberichten\RestAPI\ItemFields\ConnectedField::class,
                 'internal_info' => OWC\Persberichten\RestAPI\ItemFields\InternalField::class,
                 'mailinglists' => OWC\Persberichten\RestAPI\ItemFields\TypeField::class,
+                'spokesperson' => OWC\Persberichten\RestAPI\ItemFields\SpokespersonField::class,
+                'subtitle' => OWC\Persberichten\RestAPI\ItemFields\SubtitleField::class,
             ],
         ]
     ],
