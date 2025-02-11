@@ -6,6 +6,9 @@ use OWC\Persberichten\Traits\CheckPluginActive;
 
 class SettingsPageOptions
 {
+
+	use CheckPluginActive;
+
     /**
      * Settings defined on settings page
      *
@@ -53,7 +56,7 @@ class SettingsPageOptions
 
         $options = get_option('_owc_press_settings', []);
 
-        if (CheckPluginActive::isPluginOpenPubBaseActive()) {
+        if (static::isPluginOpenPubBaseActive()) {
             // include openpub-base settings.
             $options = array_merge($options, get_option('_owc_openpub_base_settings', []));
         };
