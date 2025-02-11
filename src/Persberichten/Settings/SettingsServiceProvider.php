@@ -7,6 +7,8 @@ use OWC\Persberichten\Traits\CheckPluginActive;
 
 class SettingsServiceProvider extends MetaboxBaseServiceProvider
 {
+	use CheckPluginActive;
+
     const PREFIX = '_owc_';
 
     /**
@@ -18,16 +20,11 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
         $this->plugin->loader->addFilter('rwmb_meta_boxes', $this, 'registerSettings', 10, 1);
     }
 
-    /**
-     * @param $rwmbSettingsPages
-     *
-     * @return array
-     */
-    public function registerSettingsPage($rwmbSettingsPages)
+    public function registerSettingsPage($rwmbSettingsPages): array
     {
         $settingsPages = $this->plugin->config->get('settings_pages');
 
-        if (!CheckPluginActive::isPluginOpenPubBaseActive()) {
+        if (!static::isPluginOpenPubBaseActive()) {
             // unset the parent of the setting page.
             unset($settingsPages['pressreleases']['parent']);
         }
@@ -37,17 +34,13 @@ class SettingsServiceProvider extends MetaboxBaseServiceProvider
 
     /**
      * Register metaboxes for settings page.
-     *
-     * @param $rwmbMetaboxes
-     *
-     * @return array
      */
-    public function registerSettings($rwmbMetaboxes)
+    public function registerSettings($rwmbMetaboxes): array
     {
         $configMetaboxes = $this->plugin->config->get('settings');
         $metaboxes       = [];
 
-        if (CheckPluginActive::isPluginOpenPubBaseActive()) {
+        if (static::isPluginOpenPubBaseActive()) {
             // unset setting because it is already defined in the openpub base plugin.
             unset($configMetaboxes['pressreleases']['fields']['settings']['settings_press_release_portal_url']);
         }
