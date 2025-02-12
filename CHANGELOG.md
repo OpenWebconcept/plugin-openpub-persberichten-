@@ -1,3 +1,10 @@
+## [2.0.3]
+
+### Feat
+
+- Add PHP 8.1 compatibility
+- Add extra fields
+
 ## [2.0.2]
 
 ### Chore
