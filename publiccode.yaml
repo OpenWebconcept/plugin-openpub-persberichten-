@@ -1,0 +1,31 @@
+name: "plugin-openpub-persberichten"
+
+applicationSuite:
+  name: "OpenWebconcept"
+
+publiccodeYmlVersion: 1.0
+url: "https://github.com/OpenWebconcept/plugin-openpub-persberichten"
+
+platforms:
+  - "web"
+
+categories:
+  - "application-development"
+
+softwareType: "softwareAddon"
+
+description:
+  localisedName: "plugin-openpub-persberichten"
+  shortDescription: "Deze plugin zorgt ervoor dat jebinnen de OpenPub Persberichten kan plaatsen die middels een API na het publiceren automatisch naar LaPosta worden gestuurd."
+  longDescription: "Deze plugin zorgt ervoor dat jebinnen de OpenPub Persberichten kan plaatsen die middels een API na het publiceren automatisch naar LaPosta worden gestuurd."
+
+nl:
+  commonground:
+    layerType: "service"
+
+dependsOn:
+  open:
+    - name: "openpub-base"
+    - versionMin: 2.0.18
+    - name: "WordPress"
+    - versionMin: 6.0.3
